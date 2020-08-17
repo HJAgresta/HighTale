@@ -15,3 +15,10 @@ Change 'win64/' to something new in the following line
 ```
 env['target_path'] += 'win64/'
 ```
+
+###Getting Started
+
+Make sure you have python installed and set to path.  
+Also have scons installed, some version of VS Native Tools CMD and Godot.  
+Make sure to add a copy of godot-cpp and godot-cpp/godot-headers in your base folder.  
+You may need to get a version from someone else rather than git.  
