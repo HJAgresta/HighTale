@@ -3,7 +3,7 @@
 Currently we are using Godot 3.2.2
 
 GDNative code is contained in the scr folder.
-Inorder to build it run the command in VS Native Tools Command Prompt.
+Inorder to build it run the following command in VS Native Tools Command Prompt.
 ```
 scons platform=<platform>
 ```
