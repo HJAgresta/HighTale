@@ -10,8 +10,8 @@ scons platform=<platform>
 ```
 
 It will build to project/win64.  
-To change output folder for the build set in in the SConstruct file in the main folder.  
-Change 'win64/' to something new in the following line  
+To change output folder for the build, go in the SConstruct file in the main folder.  
+Then change 'win64/' to something new in the following line  
 ```
 env['target_path'] += 'win64/'
 ```
