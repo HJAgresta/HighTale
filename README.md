@@ -20,7 +20,7 @@ env['target_path'] += 'win64/'
 
 Make sure you have python installed and set to path.  
 Also have scons installed, some version of VS Native Tools CMD and Godot.  
-Make sure to add a copy of godot-cpp and godot-cpp/godot-headers in your base folder.  
+Make sure to add a copy of godot-cpp and godot-cpp/godot-headers in your main folder.  
 You may need to get a version from someone else rather than git.  
 
 Additional help for running godot native can be found [on the godot wiki](https://docs.godotengine.org/en/stable/tutorials/plugins/gdnative/gdnative-cpp-example.html), [the godot-cpp readme](https://github.com/godotengine/godot-cpp) or from this [youtube tutorial](https://www.youtube.com/watch?v=XPcSfXsoArQ).  
