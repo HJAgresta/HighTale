@@ -42,8 +42,14 @@ Primarily we will use this method ->
 register_property(ClassName, PropertyType)("PropertyName", &ClassName::PropertyName, DefaultDisplayValue);
 ```
 Make sure the the default display value matches the default value in the actual code.  
-More info [here](https://youtu.be/XPcSfXsoArQ?t=630).
+More info [here](https://youtu.be/XPcSfXsoArQ?t=630).  
   
-For every class you will have to set up a Godot Nativescript in the editor.
-Usually all you have to do is type in the name.
-More info is [here](https://youtu.be/XPcSfXsoArQ?t=844).
+For every class you will have to set up a Godot Nativescript in the editor.  
+Usually all you have to do is type in the name.  
+More info is [here](https://youtu.be/XPcSfXsoArQ?t=844).  
+  
+Inorder for your \_process method to run you must call
+```
+register_method("_process", &Controls::_process);
+```
+In your \_register_methods() call
