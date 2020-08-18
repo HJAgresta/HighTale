@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
+[ext_resource path="res://Controls.gdns" type="Script" id=1]
 [ext_resource path="res://icon.tres" type="Texture" id=2]
 
 [node name="Level" type="Node2D"]
@@ -7,3 +8,4 @@
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 497.948, 277.579 )
 texture = ExtResource( 2 )
+script = ExtResource( 1 )
