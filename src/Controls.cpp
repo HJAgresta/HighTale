@@ -1,5 +1,10 @@
 #include "Controls.h"
 
+void Controls::_register_methods()
+{
+	register_method("_process", &Controls::_process);
+}
+
 
 void Controls::_init()
 {
@@ -19,10 +24,4 @@ void Controls::_process(float delta)
 	right = input->is_key_pressed(68ll);
 	down = input->is_key_pressed(83ll);
 	up = input->is_key_pressed(87ll);
-
-}
-
-void Controls::_register_methods()
-{
-	register_method("_process", &Controls::_process);
 }

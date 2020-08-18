@@ -17,9 +17,9 @@ namespace godot {
 
 		void _init();
 
-		bool left, right, down, up;
-
 		void _process(float delta);
+
+		static bool left, right, down, up;
 
 	private:
 
