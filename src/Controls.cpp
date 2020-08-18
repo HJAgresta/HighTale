@@ -25,8 +25,4 @@ void Controls::_process(float delta)
 void Controls::_register_methods()
 {
 	register_method("_process", &Controls::_process);
-	register_property<Controls, bool>("left", &Controls::left, false);
-	register_property<Controls, bool>("right", &Controls::right, false);
-	register_property<Controls, bool>("down", &Controls::down, false);
-	register_property<Controls, bool>("up", &Controls::up, false);
 }
