@@ -2,21 +2,23 @@
 
 #include "Common.h"
 #include "Controls.h"
-#include <Sprite.hpp>
+#include <KinematicCollision2D.hpp>
+#include <KinematicBody2D.hpp>
+
 namespace godot {
 	///<summary>
 	///The main player object
 	///</summary>
-	class Player : public Sprite
+	class Player : public KinematicBody2D
 	{
-		GODOT_CLASS(Player, Sprite)
+		GODOT_CLASS(Player, KinematicBody2D)
 
 	public:
 		static void _register_methods();
 
 		void _init();
 
-		void _process(float delta);
+		void _physics_process(float delta);
 
 		unique_ptr<Vector2> Velocity;
 
