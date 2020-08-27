@@ -4,6 +4,8 @@
 #include "Controls.h"
 #include <KinematicCollision2D.hpp>
 #include <KinematicBody2D.hpp>
+#include <StaticBody2D.hpp>
+#include <Ref.hpp>
 
 namespace godot {
 	///<summary>

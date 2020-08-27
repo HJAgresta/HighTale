@@ -40,6 +40,14 @@ void Player::_physics_process(float delta)
 
 	KinematicCollision2D* abba = *move_and_collide((*Velocity * delta));
 
+	if (abba != nullptr) {
+
+		if (abba->get_collider()->is_class("StaticBody2D"))
+		{
+			cout << "Hit Static Body" << endl;
+		}
+
+	}
 
 	Velocity->x = 0;
 	Velocity->y = 0;
