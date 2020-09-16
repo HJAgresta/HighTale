@@ -3,6 +3,7 @@
 void Player::_register_methods()
 {
 	register_method("_physics_process", &Player::_physics_process);
+	register_method("_ready", &Player::_ready);
 	register_property("speed", &Player::speed, 100.0f);
 
 }
@@ -15,11 +16,16 @@ void Player::_init()
 	input = Input::get_singleton();
 }
 
+
+void Player::_ready()
+{
+	anim = (AnimatedSprite*)get_node("AnimatedSprite");
+}
+
 //key presses
 //https://docs.godotengine.org/en/3.0/classes/class_@globalscope.html?highlight=%40GlobalScope
 void Player::_physics_process(float delta)
 {
-	anim = (AnimatedSprite*)get_node("AnimatedSprite");
 	moving = false;
 
 
@@ -52,8 +58,10 @@ void Player::_physics_process(float delta)
 	}
 
 	if (!moving)
+	{
 		anim->stop();
-
+		anim->set_frame(0ULL);
+	}
 	KinematicCollision2D* collider = *move_and_collide((*Velocity * delta));
 
 	if (collider != nullptr) {

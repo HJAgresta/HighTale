@@ -19,6 +19,8 @@ namespace godot {
 
 		void _init();
 
+		void _ready();
+
 		void _physics_process(float delta);
 
 		float speed;
