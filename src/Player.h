@@ -1,10 +1,10 @@
 #pragma once
 
 #include "Common.h"
-#include "Controls.h"
 #include <KinematicCollision2D.hpp>
 #include <KinematicBody2D.hpp>
 #include <AnimatedSprite.hpp>
+#include <Input.hpp>
 
 namespace godot {
 	///<summary>
@@ -21,13 +21,17 @@ namespace godot {
 
 		void _physics_process(float delta);
 
-		unique_ptr<Vector2> Velocity;
-
 		float speed;
+
+
+	private:
+		unique_ptr<Vector2> Velocity;
 
 		bool moving;
 
 		AnimatedSprite* anim;
+
+		Input* input;
 	};
 }
 

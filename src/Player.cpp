@@ -1,7 +1,5 @@
 #include "Player.h"
 
-bool Controls::left, Controls::right, Controls::down, Controls::up;
-
 void Player::_register_methods()
 {
 	register_method("_physics_process", &Player::_physics_process);
@@ -14,6 +12,7 @@ void Player::_init()
 {
 	speed = 100.0f;
 	Velocity = make_unique<Vector2>();
+	input = Input::get_singleton();
 }
 
 //key presses
@@ -24,28 +23,28 @@ void Player::_physics_process(float delta)
 	moving = false;
 
 
-	if (Controls::left && !Controls::right)
+	if (input->is_action_pressed("ui_left") && !input->is_action_pressed("ui_right"))
 	{
 		Velocity->x = Velocity->x - speed;
-		if (!Controls::up && !Controls::down)
+		if (!input->is_action_pressed("ui_up") && !input->is_action_pressed("ui_down"))
 			anim->play("left");
 		moving = true;
 	}
-	else if (Controls::right)
+	else if (input->is_action_pressed("ui_right"))
 	{
 		Velocity->x = Velocity->x + speed;
-		if (!Controls::up && !Controls::down)
+		if (!input->is_action_pressed("ui_up") && !input->is_action_pressed("ui_down"))
 			anim->play("right");
 		moving = true;
 	}
 
-	if (Controls::down && !Controls::up)
+	if (input->is_action_pressed("ui_down") && !input->is_action_pressed("ui_up"))
 	{
 		Velocity->y = Velocity->y + speed;
 		anim->play("front");
 		moving = true;
 	}
-	else if (Controls::up)
+	else if (input->is_action_pressed("ui_up"))
 	{
 		Velocity->y = Velocity->y - speed;
 		anim->play("back");
