@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/rockL.png-46e1f5ba3bd78ed110b764320e50dc7b.stex"
+path="res://.import/cliffIR.png-cdac846a00c3f38e8766cfc085f336b5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level1/obsticles/textures/rocks/rockL.png"
-dest_files=[ "res://.import/rockL.png-46e1f5ba3bd78ed110b764320e50dc7b.stex" ]
+source_file="res://level1/obsticles/cliffs/textures/cliffIR.png"
+dest_files=[ "res://.import/cliffIR.png-cdac846a00c3f38e8766cfc085f336b5.stex" ]
 
 [params]
 

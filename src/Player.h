@@ -4,8 +4,7 @@
 #include "Controls.h"
 #include <KinematicCollision2D.hpp>
 #include <KinematicBody2D.hpp>
-#include <StaticBody2D.hpp>
-#include <Ref.hpp>
+#include <AnimatedSprite.hpp>
 
 namespace godot {
 	///<summary>
@@ -25,6 +24,10 @@ namespace godot {
 		unique_ptr<Vector2> Velocity;
 
 		float speed;
+
+		bool moving;
+
+		AnimatedSprite* anim;
 	};
 }
 

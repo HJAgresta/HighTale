@@ -6,13 +6,13 @@ void Player::_register_methods()
 {
 	register_method("_physics_process", &Player::_physics_process);
 	register_property("speed", &Player::speed, 100.0f);
+
 }
 
 
 void Player::_init()
 {
 	speed = 100.0f;
-
 	Velocity = make_unique<Vector2>();
 }
 
@@ -20,29 +20,46 @@ void Player::_init()
 //https://docs.godotengine.org/en/3.0/classes/class_@globalscope.html?highlight=%40GlobalScope
 void Player::_physics_process(float delta)
 {
-	Vector2 currentPos = get_position();
+	anim = (AnimatedSprite*)get_node("AnimatedSprite");
+	moving = false;
 
-	if (Controls::left)
+
+	if (Controls::left && !Controls::right)
+	{
 		Velocity->x = Velocity->x - speed;
-
-	if (Controls::right)
+		if (!Controls::up && !Controls::down)
+			anim->play("left");
+		moving = true;
+	}
+	else if (Controls::right)
+	{
 		Velocity->x = Velocity->x + speed;
+		if (!Controls::up && !Controls::down)
+			anim->play("right");
+		moving = true;
+	}
 
-	if (Controls::down)
+	if (Controls::down && !Controls::up)
+	{
 		Velocity->y = Velocity->y + speed;
-
-	if (Controls::up)
+		anim->play("front");
+		moving = true;
+	}
+	else if (Controls::up)
+	{
 		Velocity->y = Velocity->y - speed;
+		anim->play("back");
+		moving = true;
+	}
 
-	//set_position(currentPos + (*Velocity * delta));
+	if (!moving)
+		anim->stop();
 
-	//Collider->call("move_and_collide", *Velocity * delta)
+	KinematicCollision2D* collider = *move_and_collide((*Velocity * delta));
 
-	KinematicCollision2D* abba = *move_and_collide((*Velocity * delta));
+	if (collider != nullptr) {
 
-	if (abba != nullptr) {
-
-		if (abba->get_collider()->is_class("StaticBody2D"))
+		if (collider->get_collider()->is_class("StaticBody2D"))
 		{
 			cout << "Hit Static Body" << endl;
 		}
@@ -51,4 +68,6 @@ void Player::_physics_process(float delta)
 
 	Velocity->x = 0;
 	Velocity->y = 0;
+
+
 }

@@ -13,6 +13,8 @@ void Controls::_init()
 	down = false;
 	up = false;
 
+	VisualServer::get_singleton()->set_default_clear_color(Color(0.4, 0.4, 0.4, 1.0));
+
 	input = Input::get_singleton();
 }
 

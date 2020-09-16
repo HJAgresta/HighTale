@@ -2,7 +2,7 @@
 
 #include "Common.h"
 #include <Input.hpp>
-#include <Object.hpp>
+#include <VisualServer.hpp>
 
 namespace godot {
 	///<summary>

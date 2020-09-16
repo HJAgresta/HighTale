@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cliffIBR.png-a874c249992fe19dfe10d179997c6807.stex"
+path="res://.import/cliffIBL.png-9ed27d99eb4f5567104ae5a8880eae52.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level1/obsticles/textures/cliffs/cliffIn/cliffIBR.png"
-dest_files=[ "res://.import/cliffIBR.png-a874c249992fe19dfe10d179997c6807.stex" ]
+source_file="res://level1/obsticles/cliffs/textures/cliffIBL.png"
+dest_files=[ "res://.import/cliffIBL.png-9ed27d99eb4f5567104ae5a8880eae52.stex" ]
 
 [params]
 
