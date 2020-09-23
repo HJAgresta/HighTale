@@ -129,15 +129,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Area.cpp" />
-    <ClCompile Include="Controls.cpp" />
     <ClCompile Include="LevelGen.cpp" />
     <ClCompile Include="NativeLib.cpp" />
+    <ClCompile Include="Player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Area.h" />
     <ClInclude Include="Common.h" />
     <ClInclude Include="Controls.h" />
     <ClInclude Include="LevelGen.h" />
+    <ClInclude Include="Player.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
