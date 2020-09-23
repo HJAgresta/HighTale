@@ -1,6 +1,7 @@
 #include "Common.h"
 #include "Controls.h"
 #include "Player.h"
+#include "LevelGen.h"
 
 extern "C" void GDN_EXPORT godot_gdnative_init(godot_gdnative_init_options *o) {
 	godot::Godot::gdnative_init(o);
@@ -15,4 +16,6 @@ extern "C" void GDN_EXPORT godot_nativescript_init(void *handle) {
 
 	godot::register_class<Controls>();
 	godot::register_class<Player>();
+	godot::register_class<LevelGen>();
+	godot::register_class<Area>();
 }

@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://icon.tres" type="Texture" id=1]
+[ext_resource path="res://Player.gdns" type="Script" id=2]
+[ext_resource path="res://Controls.gdns" type="Script" id=3]
+[ext_resource path="res://Area.gdns" type="Script" id=4]
+
+[node name="AreaA" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 474, 315 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+speed = 100.0
+
+[node name="AreaInfo" type="Node" parent="."]
+script = ExtResource( 4 )
+sides = 2

@@ -8,9 +8,20 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Object",
+"class": "Area",
+"language": "NativeScript",
+"path": "res://Area.gdns"
+}, {
+"base": "Object",
+"class": "LevelGen",
+"language": "NativeScript",
+"path": "res://LevelGen.gdns"
+} ]
 _global_script_class_icons={
-
+"Area": "",
+"LevelGen": ""
 }
 
 [application]
