@@ -49,25 +49,21 @@ void LevelGen::_genLevel()
 void godot::LevelGen::selectingRooms(int x, int y)
 {
 	if (x - 1 >= 0 && levelMap[x - 1][y].getSides() == NULL && levelMap[x][y].getAreaTop()) {
-		//cout << "top" << endl;
 		setTopRoom(x - 1, y);
 		selectingRooms(x - 1, y);
 	}
 
 	if (x + 1 < 5 && levelMap[x + 1][y].getSides() == NULL && levelMap[x][y].getAreaBottom()) {
-		//cout << "bottom" << endl;
 		setBottomRoom(x + 1, y);
 		selectingRooms(x + 1, y);
 	}
 
 	if (y - 1 >= 0 && levelMap[x][y - 1].getSides() == NULL && levelMap[x][y].getAreaLeft()) {
-		//cout << "left" << endl;
 		setLeftRoom(x, y - 1);
 		selectingRooms(x, y - 1);
 	}
 
 	if (y + 1 < 5 && levelMap[x][y + 1].getSides() == NULL && levelMap[x][y].getAreaRight()) {
-		//cout << "right" << endl;
 		setRightRoom(x, y + 1);
 		selectingRooms(x, y + 1);
 	}
@@ -84,9 +80,7 @@ void godot::LevelGen::setTopRoom(int x, int y)
 		num = rand() % 7 + 1;
 	}
 
-	//cout << "top area: " << num << endl;
 	listArea[num]._print();
-	//return listArea[num];
 	levelMap[x][y] = listArea[num];
 }
 
@@ -102,9 +96,7 @@ void godot::LevelGen::setBottomRoom(int x, int y)
 		num = rand() % 10;
 	}
 
-	//cout << "bottom area: " << num << endl;
 	listArea[num]._print();
-	//return listArea[num];
 	levelMap[x][y] = listArea[num];
 }
 
@@ -120,9 +112,7 @@ void godot::LevelGen::setLeftRoom(int x, int y)
 		num = rand() % 10;
 	}
 
-	//cout << "left area: " << num << endl;
 	listArea[num]._print();
-	//return listArea[num];
 	levelMap[x][y] = listArea[num];
 }
 
@@ -138,9 +128,7 @@ void godot::LevelGen::setRightRoom(int x, int y)
 		num = rand() % 10;
 	}
 
-	//cout << "right area: " << num << endl;
 	listArea[num]._print();
-	//return listArea[num];
 	levelMap[x][y] = listArea[num];
 }
 Area godot::LevelGen::selectRoom()
