@@ -1,6 +1,5 @@
 #pragma once
 #include "Common.h"
-#include "Controls.h"
 #include <Input.hpp>
 
 namespace godot {

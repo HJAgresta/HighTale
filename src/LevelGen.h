@@ -1,6 +1,5 @@
 #pragma once
 #include "Common.h"
-#include "Controls.h"
 #include "Area.h"
 #include <Input.hpp>
 #include <stdio.h>      /* printf, NULL */
