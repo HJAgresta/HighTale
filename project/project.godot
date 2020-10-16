@@ -8,9 +8,32 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Area2D",
+"class": "Attack",
+"language": "NativeScript",
+"path": "res://enemies/attacks/Attack.gdns"
+}, {
+"base": "KinematicBody2D",
+"class": "Enemy",
+"language": "NativeScript",
+"path": "res://enemies/Enemy.gdns"
+}, {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "NativeScript",
+"path": "res://player/Player.gdns"
+}, {
+"base": "Area2D",
+"class": "ProjectileAttack",
+"language": "NativeScript",
+"path": "res://enemies/attacks/ProjectileAttack.gdns"
+} ]
 _global_script_class_icons={
-
+"Attack": "",
+"Enemy": "",
+"Player": "",
+"ProjectileAttack": ""
 }
 
 [application]

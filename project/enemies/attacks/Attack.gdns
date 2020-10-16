@@ -3,6 +3,6 @@
 [ext_resource path="res://hightalenativelib.tres" type="GDNativeLibrary" id=1]
 
 [resource]
-class_name = "Player"
+class_name = "Attack"
 library = ExtResource( 1 )
-script_class_name = "Player"
+script_class_name = "Attack"

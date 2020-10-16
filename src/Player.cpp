@@ -4,7 +4,8 @@ void Player::_register_methods()
 {
 	register_method("_physics_process", &Player::_physics_process);
 	register_method("_ready", &Player::_ready);
-	register_property("speed", &Player::speed, 100.0f);
+	register_method("takeHit", &Player::takeHit);
+	register_property<Player, float>("speed", &Player::speed, 100.0f);
 
 }
 
@@ -20,6 +21,14 @@ void Player::_init()
 void Player::_ready()
 {
 	anim = (AnimatedSprite*)get_node("AnimatedSprite");
+}
+
+void Player::takeHit(int damage)
+{
+	health = health - damage;
+	cout << "Health: " <<  health << endl;
+	if (health < 1)
+		cout << "U Dead" << endl;
 }
 
 //key presses
@@ -65,12 +74,11 @@ void Player::_physics_process(float delta)
 	KinematicCollision2D* collider = *move_and_collide((*Velocity * delta));
 
 	if (collider != nullptr) {
-
+		WARN_PRINT(collider->get_collider()->get_class());
 		if (collider->get_collider()->is_class("StaticBody2D"))
 		{
 			cout << "Hit Static Body" << endl;
 		}
-
 	}
 
 	Velocity->x = 0;

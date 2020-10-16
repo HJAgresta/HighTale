@@ -13,6 +13,15 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Enemies">
+      <UniqueIdentifier>{fa001e03-7b4c-429a-87ed-c3dd0dae7aae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enemies\Header Files">
+      <UniqueIdentifier>{39d2327d-62e1-4162-8746-5a9817681fab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enemies\Source Files">
+      <UniqueIdentifier>{940ccc6e-be08-408e-a5d9-3dfc82faeb48}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="NativeLib.cpp">
@@ -21,6 +30,15 @@
     <ClCompile Include="Player.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Enemies\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Attack.cpp">
+      <Filter>Enemies\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ProjectileAttack.cpp">
+      <Filter>Enemies\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Common.h">
@@ -28,6 +46,15 @@
     </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Enemies\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Attack.h">
+      <Filter>Enemies\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ProjectileAttack.h">
+      <Filter>Enemies\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

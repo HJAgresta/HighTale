@@ -15,18 +15,23 @@ namespace godot {
 		GODOT_CLASS(Player, KinematicBody2D)
 
 	public:
+
 		static void _register_methods();
 
 		void _init();
 
 		void _ready();
 
+		void takeHit(int damage);
+
 		void _physics_process(float delta);
 
 		float speed;
 
-
 	private:
+
+		int health;
+
 		unique_ptr<Vector2> Velocity;
 
 		bool moving;
