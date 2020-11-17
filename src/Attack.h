@@ -35,6 +35,5 @@ namespace godot {
 	protected:
 
 		float stateTime = 0.0f;
-
 	};
 }

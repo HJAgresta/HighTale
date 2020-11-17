@@ -28,6 +28,12 @@ namespace godot {
 
 		float reactTime = 1.0f;
 
+		float chargeTime = 1.0f;
+
+		float attackTime = 1.0f;
+
+		float cooldownTime = 1.0f;
+
 		Ref<PackedScene> ThisAttack;
 
 		state curState;
