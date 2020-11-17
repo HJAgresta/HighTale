@@ -3,6 +3,6 @@
 [ext_resource path="res://hightalenativelib.tres" type="GDNativeLibrary" id=1]
 
 [resource]
-class_name = "Attack"
+resource_local_to_scene = true
+class_name = "AttackProjectileTargeted"
 library = ExtResource( 1 )
-script_class_name = "Attack"

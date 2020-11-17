@@ -1,0 +1,12 @@
+[gd_resource type="NativeScript" load_steps=2 format=2]
+
+[sub_resource type="GDNativeLibrary" id=1]
+resource_local_to_scene = true
+entry/Windows.64 = "res://win64/libgdexample.dll"
+dependency/Windows.64 = [  ]
+
+[resource]
+resource_local_to_scene = true
+class_name = "EnemyBasic"
+library = SubResource( 1 )
+script_class_name = "Enemy"

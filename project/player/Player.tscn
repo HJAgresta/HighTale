@@ -19,5 +19,5 @@ one_way_collision = true
 scale = Vector2( 0.1, 0.1 )
 frames = ExtResource( 2 )
 animation = "front"
-frame = 1
+frame = 3
 playing = true

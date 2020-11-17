@@ -36,7 +36,10 @@
     <ClCompile Include="Attack.cpp">
       <Filter>Enemies\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ProjectileAttack.cpp">
+    <ClCompile Include="EnemyBasic.cpp">
+      <Filter>Enemies\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AttackProjectileTargeted.cpp">
       <Filter>Enemies\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -53,7 +56,10 @@
     <ClInclude Include="Attack.h">
       <Filter>Enemies\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ProjectileAttack.h">
+    <ClInclude Include="EnemyBasic.h">
+      <Filter>Enemies\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AttackProjectileTargeted.h">
       <Filter>Enemies\Header Files</Filter>
     </ClInclude>
   </ItemGroup>

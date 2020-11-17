@@ -1,8 +1,7 @@
 #include "Common.h"
 #include "Player.h"
-#include "Enemy.h"
-#include "Attack.h"
-#include "ProjectileAttack.h"
+#include "EnemyBasic.h"
+#include "AttackProjectileTargeted.h"
 
 extern "C" void GDN_EXPORT godot_gdnative_init(godot_gdnative_init_options *o) {
 	godot::Godot::gdnative_init(o);
@@ -16,7 +15,6 @@ extern "C" void GDN_EXPORT godot_nativescript_init(void *handle) {
 	godot::Godot::nativescript_init(handle);
 
 	godot::register_class<Player>();
-	godot::register_class<Enemy>();
-	godot::register_class<Attack>();
-	godot::register_class<ProjectileAttack>();
+	godot::register_class<EnemyBasic>();
+	godot::register_class<AttackProjectileTargeted>();
 }

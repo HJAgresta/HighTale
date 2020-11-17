@@ -1,15 +1,12 @@
 #pragma once
 
 #include "Common.h"
-#include "ProjectileAttack.h"
-#include <Array.hpp>
+#include "Attack.h"
 #include <String.hpp>
 #include <KinematicCollision2D.hpp>
 #include <KinematicBody2D.hpp>
 #include <AnimatedSprite.hpp>
 #include <PackedScene.hpp>
-#include <Input.hpp>
-#include <RandomNumberGenerator.hpp>
 #include <ResourceLoader.hpp>
 
 namespace godot {
@@ -24,15 +21,9 @@ namespace godot {
 
 		static void _register_methods();
 
-		void _init();
+		virtual void _init();
 
-		void _ready();
-
-		void _physics_process(float delta);
-
-		void _free();
-
-	private:
+	protected:
 		enum state { IDLE, ALERT, FOLLOW, CHARGE, ATTACK, COOLDOWN };
 
 		float reactTime = 1.0f;

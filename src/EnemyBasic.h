@@ -1,16 +1,18 @@
 #pragma once
-#include "Attack.h"
-#include "Common.h"
-namespace godot {
 
+#include "Common.h"
+#include "Enemy.h"
+
+namespace godot {
 	///<summary>
-	///The Basic Projectile Attack Object
+	///The main player object
 	///</summary>
-	class ProjectileAttack : public Attack
+	class EnemyBasic : public Enemy
 	{
-		GODOT_CLASS(ProjectileAttack, Attack)
+		GODOT_CLASS(EnemyBasic, KinematicBody2D)
 
 	public:
+
 		static void _register_methods();
 
 		void _init();
@@ -19,7 +21,5 @@ namespace godot {
 
 		void _physics_process(float delta);
 
-		Vector2 Direction;
 	};
-
 }

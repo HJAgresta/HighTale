@@ -9,3 +9,8 @@ void Attack::_init()
 {
 
 }
+
+void Attack::destroy()
+{
+	this->queue_free();
+}

@@ -74,7 +74,7 @@ void Player::_physics_process(float delta)
 	KinematicCollision2D* collider = *move_and_collide((*Velocity * delta));
 
 	if (collider != nullptr) {
-		WARN_PRINT(collider->get_collider()->get_class());
+
 		if (collider->get_collider()->is_class("StaticBody2D"))
 		{
 			cout << "Hit Static Body" << endl;
