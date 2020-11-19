@@ -18,5 +18,5 @@ one_way_collision = true
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.1, 0.1 )
 frames = ExtResource( 2 )
-animation = "front"
+animation = "down"
 playing = true

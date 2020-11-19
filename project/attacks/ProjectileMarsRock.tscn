@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://attacks/AttackProjectile.gdns" type="Script" id=1]
+[ext_resource path="res://attacks/Projectile.gdns" type="Script" id=1]
 [ext_resource path="res://level1/obsticles/rocks/textures/rockS.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]

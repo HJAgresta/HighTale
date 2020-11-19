@@ -60,13 +60,13 @@ void Player::_physics_process(float delta)
 	if (input->is_action_pressed("ui_down") && !input->is_action_pressed("ui_up"))
 	{
 		Velocity->y = Velocity->y + speed;
-		anim->play("front");
+		anim->play("down");
 		moving = true;
 	}
 	else if (input->is_action_pressed("ui_up"))
 	{
 		Velocity->y = Velocity->y - speed;
-		anim->play("back");
+		anim->play("up");
 		moving = true;
 	}
 
@@ -94,6 +94,5 @@ void Player::_physics_process(float delta)
 	//reset velocity
 	Velocity->x = 0;
 	Velocity->y = 0;
-
 
 }

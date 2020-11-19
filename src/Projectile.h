@@ -6,9 +6,9 @@ namespace godot {
 	///<summary>
 	///The Basic Projectile Attack Object
 	///</summary>
-	class AttackProjectile : public Attack
+	class Projectile : public Attack
 	{
-		GODOT_CLASS(AttackProjectile, Attack)
+		GODOT_CLASS(Projectile, Attack)
 
 	public:
 		static void _register_methods();

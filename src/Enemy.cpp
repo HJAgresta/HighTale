@@ -22,22 +22,22 @@ void Enemy::FacePlayer()
 	{
 		if (Direction.x > 0)
 		{
-			this->set_rotation_degrees(90);
+			anim->play("right");
 		}
 		else
 		{
-			this->set_rotation_degrees(-90);
+			anim->play("left");
 		}
 	}
 	else
 	{
 		if (Direction.y > 0)
 		{
-			this->set_rotation_degrees(180);
+			anim->play("down");
 		}
 		else
 		{
-			this->set_rotation_degrees(0);
+			anim->play("up");
 		}
 	}
 }

@@ -4,5 +4,5 @@
 
 [resource]
 resource_local_to_scene = true
-class_name = "AttackProjectile"
+class_name = "Projectile"
 library = ExtResource( 1 )

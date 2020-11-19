@@ -7,6 +7,6 @@ dependency/Windows.64 = [  ]
 
 [resource]
 resource_local_to_scene = true
-class_name = "EnemyBasic"
+class_name = "StationarySingleEnemy"
 library = SubResource( 1 )
 script_class_name = "Enemy"

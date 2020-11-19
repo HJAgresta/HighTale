@@ -2,7 +2,7 @@
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://level1/steps.png" type="Texture" id=2]
-[ext_resource path="res://enemies/TestEnemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://enemies/level1/HunterStationary/HunterStationary.tscn" type="PackedScene" id=3]
 [ext_resource path="res://level1/obsticles/rocks/RockSmall.tscn" type="PackedScene" id=4]
 [ext_resource path="res://level1/obsticles/cliffs/cliffin/CliffIBR.tscn" type="PackedScene" id=5]
 [ext_resource path="res://level1/obsticles/cliffs/cliffin/CliffIB.tscn" type="PackedScene" id=6]

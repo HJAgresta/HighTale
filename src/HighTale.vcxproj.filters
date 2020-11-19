@@ -30,13 +30,13 @@
     <ClCompile Include="Attack.cpp">
       <Filter>Attacks</Filter>
     </ClCompile>
-    <ClCompile Include="AttackProjectile.cpp">
-      <Filter>Attacks</Filter>
-    </ClCompile>
     <ClCompile Include="Enemy.cpp">
       <Filter>Enemies</Filter>
     </ClCompile>
-    <ClCompile Include="EnemyBasic.cpp">
+    <ClCompile Include="Projectile.cpp">
+      <Filter>Attacks</Filter>
+    </ClCompile>
+    <ClCompile Include="StationarySingleEnemy.cpp">
       <Filter>Enemies</Filter>
     </ClCompile>
   </ItemGroup>
@@ -50,13 +50,13 @@
     <ClInclude Include="Attack.h">
       <Filter>Attacks</Filter>
     </ClInclude>
-    <ClInclude Include="AttackProjectile.h">
-      <Filter>Attacks</Filter>
-    </ClInclude>
-    <ClInclude Include="EnemyBasic.h">
+    <ClInclude Include="Enemy.h">
       <Filter>Enemies</Filter>
     </ClInclude>
-    <ClInclude Include="Enemy.h">
+    <ClInclude Include="Projectile.h">
+      <Filter>Attacks</Filter>
+    </ClInclude>
+    <ClInclude Include="StationarySingleEnemy.h">
       <Filter>Enemies</Filter>
     </ClInclude>
   </ItemGroup>

@@ -8,6 +8,7 @@
 #include <AnimatedSprite.hpp>
 #include <PackedScene.hpp>
 #include <ResourceLoader.hpp>
+#include <AnimatedSprite.hpp>
 
 namespace godot {
 	///<summary>
@@ -49,5 +50,7 @@ namespace godot {
 		int AttackIterator;
 
 		void FacePlayer();
+
+		AnimatedSprite* anim;
 	};
 }

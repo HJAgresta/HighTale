@@ -1,16 +1,16 @@
-#include "EnemyBasic.h"
+#include "StationarySingleEnemy.h"
 
-void EnemyBasic::_register_methods()
+void StationarySingleEnemy::_register_methods()
 {
-	register_method("_physics_process", &EnemyBasic::_physics_process);
-	register_method("_ready", &EnemyBasic::_ready);
-	register_method("_init", &EnemyBasic::_init);
-	register_property<EnemyBasic, Ref<PackedScene>>("ThisAttack", &EnemyBasic::ThisAttack, Ref<PackedScene>());
-	register_property<EnemyBasic, float>("reactTime", &EnemyBasic::reactTime, 1.0f);
+	register_method("_physics_process", &StationarySingleEnemy::_physics_process);
+	register_method("_ready", &StationarySingleEnemy::_ready);
+	register_method("_init", &StationarySingleEnemy::_init);
+	register_property<StationarySingleEnemy, Ref<PackedScene>>("ThisAttack", &StationarySingleEnemy::ThisAttack, Ref<PackedScene>());
+	register_property<StationarySingleEnemy, float>("reactTime", &StationarySingleEnemy::reactTime, 1.0f);
 }
 
 
-void EnemyBasic::_init()
+void StationarySingleEnemy::_init()
 {
 	//set our defaults
 	curState = ALERT;
@@ -18,13 +18,14 @@ void EnemyBasic::_init()
 	AttackIterator = 0;
 }
 
-void EnemyBasic::_ready()
+void StationarySingleEnemy::_ready()
 {
 	//get a refrence to the player, we use it alot
 	Player = (KinematicBody2D*)get_node("../Player");
+	anim = (AnimatedSprite*)get_node("AnimatedSprite");
 }
 
-void EnemyBasic::_physics_process(float delta)
+void StationarySingleEnemy::_physics_process(float delta)
 {
 	stateTime += delta;
 
@@ -38,6 +39,8 @@ void EnemyBasic::_physics_process(float delta)
 	case ALERT:
 
 		FacePlayer();
+		anim->stop();
+		anim->set_frame(0ULL);
 
 		if (reactTime < stateTime)
 		{
@@ -68,6 +71,9 @@ void EnemyBasic::_physics_process(float delta)
 			curAttack->set_process(false);
 			curAttack->set_physics_process(false);
 
+			//set animation
+			anim->set_frame(1ULL);
+
 			//we want to get these when they are initalized incase we destroy the object during the
 			//attack phase
 			chargeTime = (float)curAttack->get("chargeTime");
@@ -84,6 +90,12 @@ void EnemyBasic::_physics_process(float delta)
 
 			//set the direction of the projectile
 			curAttack->set("Direction", Variant(curAttack->get_global_position().direction_to(Player->get_global_position())));
+
+			//Face the player when we throw it
+			FacePlayer();
+			anim->stop();
+			//set animation
+			anim->set_frame(0ULL);
 
 			//activate object after charged
 			curAttack->set_visible(true);

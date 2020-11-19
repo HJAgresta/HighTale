@@ -9,12 +9,12 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "",
+"base": "KinematicBody2D",
 "class": "Enemy",
 "language": "NativeScript",
 "path": "res://enemies/EnemyBasic.gdns"
 }, {
-"base": "",
+"base": "KinematicBody2D",
 "class": "Player",
 "language": "NativeScript",
 "path": "res://player/Player.gdns"

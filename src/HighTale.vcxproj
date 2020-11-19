@@ -132,16 +132,16 @@
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="NativeLib.cpp" />
     <ClCompile Include="Player.cpp" />
-    <ClCompile Include="AttackProjectile.cpp" />
-    <ClCompile Include="EnemyBasic.cpp" />
+    <ClCompile Include="Projectile.cpp" />
+    <ClCompile Include="StationarySingleEnemy.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Attack.h" />
     <ClInclude Include="Common.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Player.h" />
-    <ClInclude Include="AttackProjectile.h" />
-    <ClInclude Include="EnemyBasic.h" />
+    <ClInclude Include="Projectile.h" />
+    <ClInclude Include="StationarySingleEnemy.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
