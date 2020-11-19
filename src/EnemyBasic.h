@@ -9,7 +9,7 @@ namespace godot {
 	///</summary>
 	class EnemyBasic : public Enemy
 	{
-		GODOT_CLASS(EnemyBasic, KinematicBody2D)
+		GODOT_CLASS(EnemyBasic, Enemy)
 
 	public:
 

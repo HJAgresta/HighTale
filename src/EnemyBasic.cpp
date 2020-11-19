@@ -46,13 +46,13 @@ void EnemyBasic::_physics_process(float delta)
 
 			//create an instance of our refrenced attack
 			//this calls init
-			Attack* newAttack = (Attack*)ThisAttack->instance();
+			curAttack = (Attack*)ThisAttack->instance();
 
 			//create a name for the attack that iterates
-			String name = this->get_name() + newAttack->get_name() + Variant(AttackIterator);
+			String name = this->get_name() + curAttack->get_name() + Variant(AttackIterator);
 
 			//sets the name to our iterated name
-			newAttack->set_name(name);
+			curAttack->set_name(name);
 
 			//why not do a little extra bug protection
 			if (AttackIterator < INT_MAX)
@@ -61,10 +61,7 @@ void EnemyBasic::_physics_process(float delta)
 				AttackIterator = INT_MIN;
 
 			//add the object to the actual scene, this calls ready()
-			get_parent()->add_child(newAttack, true);
-
-			//get refrence to object we just created
-			curAttack = (Attack*)(get_node(NodePath("../" + name)));
+			get_parent()->add_child(curAttack, true);
 
 			//essesntially sets object to inactive
 			curAttack->set_visible(false);
@@ -83,7 +80,10 @@ void EnemyBasic::_physics_process(float delta)
 		if (chargeTime < stateTime)
 		{
 			//set attack location to where we are
-			curAttack->set_position(this->get_position());
+			curAttack->set_global_position(this->get_global_position());
+
+			//set the direction of the projectile
+			curAttack->set("Direction", Variant(curAttack->get_global_position().direction_to(Player->get_global_position())));
 
 			//activate object after charged
 			curAttack->set_visible(true);

@@ -6,9 +6,9 @@ namespace godot {
 	///<summary>
 	///The Basic Projectile Attack Object
 	///</summary>
-	class AttackProjectileTargeted : public Attack
+	class AttackProjectile : public Attack
 	{
-		GODOT_CLASS(AttackProjectileTargeted, Attack)
+		GODOT_CLASS(AttackProjectile, Attack)
 
 	public:
 		static void _register_methods();
@@ -22,8 +22,6 @@ namespace godot {
 		float time;
 
 		void _physics_process(float delta);
-
-		Vector2 Direction;
 	};
 
 }

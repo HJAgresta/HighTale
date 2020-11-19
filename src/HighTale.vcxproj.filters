@@ -16,11 +16,8 @@
     <Filter Include="Enemies">
       <UniqueIdentifier>{fa001e03-7b4c-429a-87ed-c3dd0dae7aae}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Enemies\Header Files">
-      <UniqueIdentifier>{39d2327d-62e1-4162-8746-5a9817681fab}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Enemies\Source Files">
-      <UniqueIdentifier>{940ccc6e-be08-408e-a5d9-3dfc82faeb48}</UniqueIdentifier>
+    <Filter Include="Attacks">
+      <UniqueIdentifier>{072994d2-80a7-471b-9fb0-6cb63e07ddd1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -30,17 +27,17 @@
     <ClCompile Include="Player.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Enemy.cpp">
-      <Filter>Enemies\Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Attack.cpp">
-      <Filter>Enemies\Source Files</Filter>
+      <Filter>Attacks</Filter>
+    </ClCompile>
+    <ClCompile Include="AttackProjectile.cpp">
+      <Filter>Attacks</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Enemies</Filter>
     </ClCompile>
     <ClCompile Include="EnemyBasic.cpp">
-      <Filter>Enemies\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="AttackProjectileTargeted.cpp">
-      <Filter>Enemies\Source Files</Filter>
+      <Filter>Enemies</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -50,17 +47,17 @@
     <ClInclude Include="Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Enemy.h">
-      <Filter>Enemies\Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Attack.h">
-      <Filter>Enemies\Header Files</Filter>
+      <Filter>Attacks</Filter>
+    </ClInclude>
+    <ClInclude Include="AttackProjectile.h">
+      <Filter>Attacks</Filter>
     </ClInclude>
     <ClInclude Include="EnemyBasic.h">
-      <Filter>Enemies\Header Files</Filter>
+      <Filter>Enemies</Filter>
     </ClInclude>
-    <ClInclude Include="AttackProjectileTargeted.h">
-      <Filter>Enemies\Header Files</Filter>
+    <ClInclude Include="Enemy.h">
+      <Filter>Enemies</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

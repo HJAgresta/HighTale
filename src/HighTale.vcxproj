@@ -132,7 +132,7 @@
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="NativeLib.cpp" />
     <ClCompile Include="Player.cpp" />
-    <ClCompile Include="AttackProjectileTargeted.cpp" />
+    <ClCompile Include="AttackProjectile.cpp" />
     <ClCompile Include="EnemyBasic.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -140,7 +140,7 @@
     <ClInclude Include="Common.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Player.h" />
-    <ClInclude Include="AttackProjectileTargeted.h" />
+    <ClInclude Include="AttackProjectile.h" />
     <ClInclude Include="EnemyBasic.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

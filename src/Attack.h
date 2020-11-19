@@ -32,6 +32,9 @@ namespace godot {
 		float range = 100.0f;
 
 		int damage = 30;
+
+		Vector2 Direction = Vector2(0,0);
+
 	protected:
 
 		float stateTime = 0.0f;
