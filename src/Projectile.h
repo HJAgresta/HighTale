@@ -19,6 +19,8 @@ namespace godot {
 
 		void destroy();
 
+		void counter();
+
 		float time;
 
 		void _physics_process(float delta);

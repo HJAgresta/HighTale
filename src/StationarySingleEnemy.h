@@ -21,5 +21,8 @@ namespace godot {
 
 		void _physics_process(float delta);
 
+		float Health;
+
+		bool TakeHit(float damage, Attack* incoming);
 	};
 }

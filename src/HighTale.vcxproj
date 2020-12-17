@@ -129,6 +129,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Attack.cpp" />
+    <ClCompile Include="BreakableObject.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="NativeLib.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -137,6 +138,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Attack.h" />
+    <ClInclude Include="BreakableObject.h" />
     <ClInclude Include="Common.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Player.h" />

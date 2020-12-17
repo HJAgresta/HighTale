@@ -20,7 +20,10 @@
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 143.631, 97.0139 )
-collision_layer = 3
+collision_layer = 2
+collision_mask = 3
+counterTime = 1.0
+counterCooldown = 0.5
 
 [node name="Obsticles" type="Node" parent="."]
 
@@ -69,3 +72,4 @@ texture = ExtResource( 2 )
 
 [node name="Enemy" parent="." instance=ExtResource( 3 )]
 position = Vector2( 102.41, 59.9359 )
+collision_layer = 4

@@ -39,6 +39,9 @@
     <ClCompile Include="StationarySingleEnemy.cpp">
       <Filter>Enemies</Filter>
     </ClCompile>
+    <ClCompile Include="BreakableObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Common.h">
@@ -58,6 +61,9 @@
     </ClInclude>
     <ClInclude Include="StationarySingleEnemy.h">
       <Filter>Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="BreakableObject.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -10,6 +10,13 @@ void Enemy::_init()
 
 }
 
+bool Enemy::Destroy()
+{
+	this->queue_free();
+	return true;
+}
+
+
 void Enemy::FacePlayer()
 {
 	//gets the direction to the player
