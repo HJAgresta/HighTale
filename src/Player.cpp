@@ -38,17 +38,17 @@ bool Player::TakeHit(float damage, Attack* incoming)
 	case COUNTER:
 
 		incoming->counter();
+		PlayerState = DEFAULT;
 
 		return false;
 
 	default:
 		//subtract damage from our healht
 		Health = Health - damage;
-		//let the user know this actually happened
-		cout << "Health: " << Health << endl;
+
 		//if we are dead we should do something
 		if (Health < 1)
-			cout << "U Dead" << endl;
+			this->Destroy();
 
 		incoming->destroy();
 

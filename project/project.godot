@@ -14,7 +14,7 @@ _global_script_classes=[ {
 "language": "NativeScript",
 "path": "res://player/Player.gdns"
 }, {
-"base": "KinematicBody2D",
+"base": "",
 "class": "StationarySingleEnemy",
 "language": "NativeScript",
 "path": "res://enemies/EnemyBasic.gdns"
