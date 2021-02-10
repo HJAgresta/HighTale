@@ -2,26 +2,17 @@
 
 class GridNode;
 
-void Grid::_register_methods()
-{
-	register_method("_init", &Grid::_init);
-}
-
-
-void Grid::_init()
-{
-}
-
 Grid::Grid()
 {
+
 }
 
-Grid::Grid(int collumnCount, int rowCount)
+Grid::Grid(int rowCount, int collumnCount)
 {
 
-	CollumnCount = collumnCount;
-
 	RowCount = rowCount;
+
+	CollumnCount = collumnCount;
 
 	indicies = map<String, unique_ptr<GridNode>>();
 
@@ -30,11 +21,14 @@ Grid::Grid(int collumnCount, int rowCount)
 		for (int j = 0; j < CollumnCount; j++)
 		{
 
-			indicies.insert(pair<String, unique_ptr<GridNode>>(String(i) + ',' + String(j), make_unique<GridNode>(GridNode(i, j))));
+			indicies.insert(pair<String, unique_ptr<GridNode>>(String(i) + String(',') + String(j), make_unique<GridNode>(GridNode(i, j))));
 			
-			WARN_PRINT(indicies[String(i) + ',' + String(j)]->Center);
-
 		}
 	}
+}
+
+godot::GridNode* Grid::GetNode(int row, int collumn)
+{
+	return &(*indicies[String(row) + String(',') + String(collumn)]);
 }
 

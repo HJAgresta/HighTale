@@ -6,24 +6,24 @@
 
 namespace godot {
 
-	class Grid : public Object
+	class Grid 
 	{
-		GODOT_CLASS(Grid, Object)
 
 	public:
-		static void _register_methods();
-
-		virtual void _init();
 
 		Grid();
 
-		Grid(int collumnCount, int rowCount);
+		Grid(int rowCount, int collumnCount);
 
-		map<String, unique_ptr<GridNode>> indicies;
+		GridNode* GetNode(int row, int collumn);
 
 		int CollumnCount;
 
 		int RowCount;
+
+	private:
+
+		map<String, unique_ptr<GridNode>> indicies;
 
 	};
 };
