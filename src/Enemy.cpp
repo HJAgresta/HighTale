@@ -16,7 +16,9 @@ bool Enemy::Destroy()
 	return true;
 }
 
-
+///<summary>
+///sets animation and sets the direction vector twoards the player
+///</summary>
 void Enemy::FacePlayer()
 {
 	//gets the direction to the player

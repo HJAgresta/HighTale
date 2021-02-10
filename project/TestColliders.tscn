@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://level1/steps.png" type="Texture" id=2]
@@ -15,15 +15,16 @@
 [ext_resource path="res://level1/obsticles/cliffs/cliffin/CliffIT.tscn" type="PackedScene" id=13]
 [ext_resource path="res://level1/obsticles/cliffs/cliffin/CliffITR.tscn" type="PackedScene" id=14]
 [ext_resource path="res://level1/obsticles/rocks/RockTall.tscn" type="PackedScene" id=15]
+[ext_resource path="res://enemies/level1/HunterFollow.tscn" type="PackedScene" id=16]
+[ext_resource path="res://LevelManager.gdns" type="Script" id=17]
 
 [node name="Level" type="Node2D"]
+script = ExtResource( 17 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 143.631, 97.0139 )
 collision_layer = 2
 collision_mask = 3
-counterTime = 1.0
-counterCooldown = 0.5
 
 [node name="Obsticles" type="Node" parent="."]
 
@@ -73,3 +74,6 @@ texture = ExtResource( 2 )
 [node name="Enemy" parent="." instance=ExtResource( 3 )]
 position = Vector2( 102.41, 59.9359 )
 collision_layer = 4
+
+[node name="Enemy2" parent="." instance=ExtResource( 16 )]
+position = Vector2( 394.067, 67.015 )

@@ -7,18 +7,21 @@ void Player::_register_methods()
 	register_method("TakeHit", &Player::TakeHit);
 	register_property<Player, float>("speed", &Player::speed, 100.0f);
 	register_property<Player, float>("Health", &Player::Health, 100.0f);
-	register_property<Player, float>("counterTime", &Player::counterTime, 100.0f);
-	register_property<Player, float>("counterCooldown", &Player::counterCooldown, 50.0f);
+	register_property<Player, float>("counterTime", &Player::counterTime, 1.0f);
+	register_property<Player, float>("counterCooldown", &Player::counterCooldown, 1.0f);
 
 }
 
 
 void Player::_init()
 {
+	//registered properties
 	speed = 100.0f;
-	counterTime = 0.0f;
-	counterCooldown = 50.0f;
 	Health = 100.0f;
+	counterTime = 1.0f;
+	counterCooldown = 1.0f;
+
+	//unresistered properties
 	stateTimer = 0.0f;
 	Velocity = make_unique<Vector2>();
 	input = Input::get_singleton();
@@ -144,16 +147,15 @@ void Player::_physics_process(float delta)
 
 		//move and collide
 		KinematicCollision2D* collider = *move_and_collide((*Velocity * delta));
-
+		/*
 		//if the collider is a nullpointer we didnt hit anything
 		if (collider != nullptr) {
 			//if its a static object we can see this way
 			if (collider->get_collider()->is_class("StaticBody2D"))
 			{
-				cout << "Hit Static Body" << endl;
 			}
 		}
-
+		*/
 		//reset velocity
 		Velocity->x = 0;
 		Velocity->y = 0;

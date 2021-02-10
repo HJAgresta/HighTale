@@ -1,27 +1,33 @@
-#include "StationarySingleEnemy.h"
+#include "MovingSingleEnemy.h"
 
-void StationarySingleEnemy::_register_methods()
+void MovingSingleEnemy::_register_methods()
 {
-	register_method("_physics_process", &StationarySingleEnemy::_physics_process);
-	register_method("_ready", &StationarySingleEnemy::_ready);
-	register_method("_init", &StationarySingleEnemy::_init);
-	register_method("TakeHit", &StationarySingleEnemy::TakeHit);
-	register_property<StationarySingleEnemy, float>("Health", &StationarySingleEnemy::Health, 100.0f);
-	register_property<StationarySingleEnemy, Ref<PackedScene>>("ThisAttack", &StationarySingleEnemy::ThisAttack, Ref<PackedScene>());
-	register_property<StationarySingleEnemy, float>("reactTime", &StationarySingleEnemy::reactTime, 1.0f);
+	register_method("_physics_process", &MovingSingleEnemy::_physics_process);
+	register_method("_ready", &MovingSingleEnemy::_ready);
+	register_method("_init", &MovingSingleEnemy::_init);
+	register_method("TakeHit", &MovingSingleEnemy::TakeHit);
+	register_property<MovingSingleEnemy, float>("Health", &MovingSingleEnemy::Health, 100.0f);
+	register_property<MovingSingleEnemy, float>("Speed", &MovingSingleEnemy::Speed, 100.0f);
+	register_property<MovingSingleEnemy, float>("followUntil", &MovingSingleEnemy::followUntil, 60.0f);
+	register_property<MovingSingleEnemy, float>("fleeUntil", &MovingSingleEnemy::fleeUntil, 30.0f);
+	register_property<MovingSingleEnemy, Ref<PackedScene>>("ThisAttack", &MovingSingleEnemy::ThisAttack, Ref<PackedScene>());
+	register_property<MovingSingleEnemy, float>("reactTime", &MovingSingleEnemy::reactTime, 1.0f);
 }
 
 
-void StationarySingleEnemy::_init()
+void MovingSingleEnemy::_init()
 {
 	//set our defaults
-	curState = ALERT;
+	curState = FOLLOW;
 	stateTime = 0.0f;
 	AttackIterator = 0;
 	Health = 100.0f;
+	Speed = 100.0f;
+	followUntil = 60.0f;
+	fleeUntil = 30.0f;
 }
 
-bool StationarySingleEnemy::TakeHit(float damage, Attack* incoming)
+bool MovingSingleEnemy::TakeHit(float damage, Attack* incoming)
 {
 
 	Health = Health - damage;
@@ -34,14 +40,14 @@ bool StationarySingleEnemy::TakeHit(float damage, Attack* incoming)
 	return true;
 }
 
-void StationarySingleEnemy::_ready()
+void MovingSingleEnemy::_ready()
 {
 	//get a refrence to the player, we use it alot
 	Player = (KinematicBody2D*)get_node("../Player");
 	anim = (AnimatedSprite*)get_node("AnimatedSprite");
 }
 
-void StationarySingleEnemy::_physics_process(float delta)
+void MovingSingleEnemy::_physics_process(float delta)
 {
 	stateTime += delta;
 
@@ -49,17 +55,39 @@ void StationarySingleEnemy::_physics_process(float delta)
 	{
 
 	case FOLLOW:
-		break;
-	case IDLE:
-		break;
-	case ALERT:
 
 		FacePlayer();
-		anim->stop();
-		anim->set_frame(0ULL);
 
-		if (reactTime < stateTime)
+
+
+
+
+		if (Player->get_global_position().distance_squared_to(this->get_global_position()) > followUntil)
 		{
+			KinematicCollision2D* collider = *move_and_collide((Direction * Speed * delta));
+			/*
+			//if the collider is a nullpointer we didnt hit anything
+			if (collider != nullptr) {
+				//if its a static object we can see this way
+				if (collider->get_collider()->is_class("StaticBody2D"))
+				{
+					cout << "Hit Static Body" << endl;
+				}
+			}
+			*/
+		}
+		else if(Player->get_global_position().distance_squared_to(this->get_global_position()) < fleeUntil)
+		{
+			KinematicCollision2D* collider = *move_and_collide((Direction * -Speed * delta));
+
+			//if the collider is a nullpointer we didnt hit anything
+			if (collider != nullptr) {
+				//if its a static object we can see this way
+			}
+		}
+		else
+		{
+
 			stateTime = 0.0f;
 			curState = CHARGE;
 
@@ -95,6 +123,21 @@ void StationarySingleEnemy::_physics_process(float delta)
 			chargeTime = (float)curAttack->get("chargeTime");
 			attackTime = (float)curAttack->get("attackTime");
 			cooldownTime = (float)curAttack->get("cooldownTime");
+		}
+
+
+
+		break;
+	case IDLE:
+		break;
+	case ALERT:
+
+		FacePlayer();
+		anim->stop();
+		anim->set_frame(0ULL);
+
+		if (reactTime < stateTime)
+		{
 
 		}
 		break;
@@ -133,7 +176,7 @@ void StationarySingleEnemy::_physics_process(float delta)
 		if (cooldownTime < stateTime)
 		{
 			stateTime = 0.0f;
-			curState = ALERT;
+			curState = FOLLOW;
 		}
 		break;
 

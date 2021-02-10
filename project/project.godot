@@ -14,10 +14,10 @@ _global_script_classes=[ {
 "language": "NativeScript",
 "path": "res://player/Player.gdns"
 }, {
-"base": "",
+"base": "KinematicBody2D",
 "class": "StationarySingleEnemy",
 "language": "NativeScript",
-"path": "res://enemies/EnemyBasic.gdns"
+"path": "res://enemies/EnemyFollow.gdns"
 } ]
 _global_script_class_icons={
 "Player": "",
