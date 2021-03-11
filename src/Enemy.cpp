@@ -21,8 +21,10 @@ bool Enemy::Destroy()
 ///</summary>
 void Enemy::FacePlayer()
 {
+	Target = Player->get_position();
+
 	//gets the direction to the player
-	Direction = this->get_position().direction_to(Player->get_position());
+	Direction = this->get_position().direction_to(Target);
 
 	//if the magnitiude of x is greater than y
 	//they it is either to the right or left primarily

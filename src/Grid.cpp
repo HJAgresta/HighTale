@@ -7,28 +7,57 @@ Grid::Grid()
 
 }
 
-Grid::Grid(int rowCount, int collumnCount)
+
+Grid::~Grid()
 {
-
-	RowCount = rowCount;
-
-	CollumnCount = collumnCount;
-
-	indicies = map<String, unique_ptr<GridNode>>();
 
 	for (int i = 0; i < RowCount; i++)
 	{
 		for (int j = 0; j < CollumnCount; j++)
 		{
 
-			indicies.insert(pair<String, unique_ptr<GridNode>>(String(i) + String(',') + String(j), make_unique<GridNode>(GridNode(i, j))));
-			
+			delete Indicies[i][j];
 		}
+		delete Indicies[i];
 	}
+	delete Indicies;
 }
 
-godot::GridNode* Grid::GetNode(int row, int collumn)
+Grid::Grid(int rowCount, int collumnCount)
 {
-	return &(*indicies[String(row) + String(',') + String(collumn)]);
+	RowCount = rowCount;
+
+	CollumnCount = collumnCount;
+
+	Indicies = new GridNode**[RowCount];
+
+	for (int i = 0; i < RowCount; i++)
+	{
+		Indicies[i] = new GridNode*[CollumnCount]; // build rows
+	}
+
+	for (int i = 0; i < RowCount; i++)
+	{
+		for (int j = 0; j < CollumnCount; j++)
+		{
+
+			Indicies[i][j] = new GridNode(i, j);
+		}
+	}
+
+}
+
+bool Grid::AssignNode(int row, int collumn, GridObject* callObject)
+{
+	GridNode* node = Indicies[row][collumn];
+
+	if (node->Occupant == nullptr)
+		return false;
+	else
+	{
+		node->Occupant = callObject;
+		callObject->AssignedNode = node;
+		return true;
+	}
 }
 

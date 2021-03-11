@@ -1,5 +1,11 @@
 #include "GridNode.h"
 
+
+GridNode::GridNode()
+{
+
+}
+
 GridNode::GridNode(int row, int collumn)
 {
 	Collumn = collumn;

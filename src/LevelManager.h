@@ -2,6 +2,7 @@
 
 #include "Common.h"
 #include "Grid.h"
+#include "GridNode.h"
 #include <Node2D.hpp>
 
 namespace godot {
@@ -16,6 +17,8 @@ namespace godot {
 		virtual void _init();
 
 		Grid grid;
+
+
 
 	};
 };

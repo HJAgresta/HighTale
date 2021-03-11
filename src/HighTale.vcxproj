@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -133,6 +133,7 @@
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Grid.cpp" />
     <ClCompile Include="GridNode.cpp" />
+    <ClCompile Include="GridObject.cpp" />
     <ClCompile Include="LevelManager.cpp" />
     <ClCompile Include="MovingSingleEnemy.cpp" />
     <ClCompile Include="NativeLib.cpp" />
@@ -147,6 +148,7 @@
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Grid.h" />
     <ClInclude Include="GridNode.h" />
+    <ClInclude Include="GridObject.h" />
     <ClInclude Include="LevelManager.h" />
     <ClInclude Include="MovingSingleEnemy.h" />
     <ClInclude Include="Player.h" />

@@ -43,6 +43,8 @@ namespace godot {
 
 		KinematicBody2D* Player;
 
+		Vector2 Target;
+
 		Attack* curAttack;
 
 		float stateTime;

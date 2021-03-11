@@ -1,8 +1,8 @@
 #pragma once
 
 #include "Common.h"
-#include <map>
 #include "GridNode.h"
+#include "GridObject.h"
 
 namespace godot {
 
@@ -13,17 +13,19 @@ namespace godot {
 
 		Grid();
 
-		Grid(int rowCount, int collumnCount);
+		~Grid();
 
-		GridNode* GetNode(int row, int collumn);
+		Grid(int rowCount, int collumnCount);
 
 		int CollumnCount;
 
 		int RowCount;
 
+		bool AssignNode(int row, int collumn, GridObject* callObject);
+
 	private:
 
-		map<String, unique_ptr<GridNode>> indicies;
+		GridNode*** Indicies;
 
 	};
 };

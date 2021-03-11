@@ -2,6 +2,7 @@
 
 #include "Common.h"
 #include "Attack.h"
+#include "GridObject.h"
 #include <KinematicBody2D.hpp>
 #include <KinematicCollision2D.hpp>
 
@@ -9,9 +10,9 @@ namespace godot {
 
 	class Attack;
 
-	class BreakableObject : public KinematicBody2D 
+	class BreakableObject : public GridObject 
 	{
-		GODOT_CLASS(BreakableObject, KinematicBody2D)
+		GODOT_CLASS(BreakableObject, GridObject)
 
 	public:
 		static void _register_methods();

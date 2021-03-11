@@ -5,10 +5,12 @@
 
 namespace godot {
 
-	struct GridNode 
+	struct GridNode
 	{
 
 	public:
+
+		GridNode();
 
 		GridNode(int row, int collumn);
 

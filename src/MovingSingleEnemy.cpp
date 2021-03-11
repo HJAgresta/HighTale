@@ -79,11 +79,11 @@ void MovingSingleEnemy::_physics_process(float delta)
 		else if(Player->get_global_position().distance_squared_to(this->get_global_position()) < fleeUntil)
 		{
 			KinematicCollision2D* collider = *move_and_collide((Direction * -Speed * delta));
-
+			/*
 			//if the collider is a nullpointer we didnt hit anything
 			if (collider != nullptr) {
 				//if its a static object we can see this way
-			}
+			}*/
 		}
 		else
 		{
