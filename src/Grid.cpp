@@ -42,10 +42,12 @@ Grid::Grid(int rowCount, int collumnCount)
 		{
 
 			Indicies[i][j] = new GridNode(i, j);
+
 		}
 	}
 
 }
+
 
 bool Grid::AssignNode(int row, int collumn, GridObject* callObject)
 {

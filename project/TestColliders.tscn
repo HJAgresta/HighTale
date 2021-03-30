@@ -20,6 +20,23 @@
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 17 )
+EnemyTypes = {
+"HF": ExtResource( 16 ),
+"HS": ExtResource( 3 )
+}
+StaticObjectTypes = {
+"R1x1": ExtResource( 4 ),
+"R2x1": ExtResource( 8 ),
+"R4x4": ExtResource( 9 ),
+"WIB": ExtResource( 6 ),
+"WIBL": ExtResource( 10 ),
+"WIBR": ExtResource( 5 ),
+"WIL": ExtResource( 12 ),
+"WIR": ExtResource( 7 ),
+"WIT": ExtResource( 13 ),
+"WITL": ExtResource( 11 ),
+"WITR": ExtResource( 14 )
+}
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 143.631, 97.0139 )

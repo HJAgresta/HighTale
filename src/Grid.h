@@ -23,9 +23,10 @@ namespace godot {
 
 		bool AssignNode(int row, int collumn, GridObject* callObject);
 
-	private:
-
 		GridNode*** Indicies;
+
+
+
 
 	};
 };
