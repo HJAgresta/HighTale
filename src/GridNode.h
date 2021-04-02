@@ -12,11 +12,11 @@ namespace godot {
 
 		GridNode();
 
-		GridNode(int row, int collumn);
+		GridNode(int xCount, int yCount);
 
-		int Row;
+		int XCount;
 
-		int Collumn;
+		int YCount;
 
 		Vector2 Center;
 

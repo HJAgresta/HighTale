@@ -15,19 +15,16 @@ namespace godot {
 
 		~Grid();
 
-		Grid(int rowCount, int collumnCount);
+		Grid(int xCount, int yCount);
 
-		int CollumnCount;
+		int XCount;
 
-		int RowCount;
+		int YCount;
 
-		bool AssignNode(int row, int collumn, GridObject* callObject);
+		bool AssignNode(int x, int y, GridObject* callObject);
 
 		GridNode*** Indicies;
-
-
-
-
+		
 	};
 };
 

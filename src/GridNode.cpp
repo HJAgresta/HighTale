@@ -6,12 +6,12 @@ GridNode::GridNode()
 
 }
 
-GridNode::GridNode(int row, int collumn)
+GridNode::GridNode(int xCount, int yCount)
 {
-	Collumn = collumn;
+	XCount = xCount;
 
-	Row = row;
+	YCount = yCount;
 
-	Center = Vector2(row * 16.0f + 8.0f, collumn * 16.0f + 8.0f);
+	Center = Vector2(XCount * 16.0f + 8.0f, YCount * 16.0f + 8.0f);
 
 }

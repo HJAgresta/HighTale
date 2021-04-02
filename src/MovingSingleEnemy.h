@@ -8,7 +8,7 @@ namespace godot {
 	///</summary>
 	class MovingSingleEnemy : public Enemy
 	{
-		GODOT_CLASS(MovingSingleEnemy, Enemy)
+		GODOT_SUBCLASS(MovingSingleEnemy, Enemy)
 
 	public:
 

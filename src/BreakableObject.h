@@ -12,7 +12,7 @@ namespace godot {
 
 	class BreakableObject : public GridObject 
 	{
-		GODOT_CLASS(BreakableObject, GridObject)
+		GODOT_SUBCLASS(BreakableObject, GridObject)
 
 	public:
 		static void _register_methods();

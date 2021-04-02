@@ -1,7 +1,6 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://level1/steps.png" type="Texture" id=2]
 [ext_resource path="res://enemies/level1/HunterStationary.tscn" type="PackedScene" id=3]
 [ext_resource path="res://level1/obsticles/rocks/RockSmall.tscn" type="PackedScene" id=4]
 [ext_resource path="res://level1/obsticles/cliffs/cliffin/CliffIBR.tscn" type="PackedScene" id=5]
@@ -14,7 +13,6 @@
 [ext_resource path="res://level1/obsticles/cliffs/cliffin/CliffIL.tscn" type="PackedScene" id=12]
 [ext_resource path="res://level1/obsticles/cliffs/cliffin/CliffIT.tscn" type="PackedScene" id=13]
 [ext_resource path="res://level1/obsticles/cliffs/cliffin/CliffITR.tscn" type="PackedScene" id=14]
-[ext_resource path="res://level1/obsticles/rocks/RockTall.tscn" type="PackedScene" id=15]
 [ext_resource path="res://enemies/level1/HunterFollow.tscn" type="PackedScene" id=16]
 [ext_resource path="res://LevelManager.gdns" type="Script" id=17]
 
@@ -39,58 +37,5 @@ StaticObjectTypes = {
 }
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 143.631, 97.0139 )
-collision_layer = 2
+collision_layer = 3
 collision_mask = 3
-
-[node name="Obsticles" type="Node" parent="."]
-
-[node name="RockSmall" parent="Obsticles" instance=ExtResource( 4 )]
-position = Vector2( 44.6689, 56.1125 )
-
-[node name="RockWide" parent="Obsticles" instance=ExtResource( 8 )]
-position = Vector2( 331.662, 31.5304 )
-
-[node name="RockTall" parent="Obsticles" instance=ExtResource( 15 )]
-position = Vector2( 48.8335, 198.698 )
-
-[node name="RockLarge" parent="Obsticles" instance=ExtResource( 9 )]
-position = Vector2( 386.66, 201.099 )
-
-[node name="CliffIB" parent="Obsticles" instance=ExtResource( 6 )]
-position = Vector2( 320, 130 )
-
-[node name="CliffIBL" parent="Obsticles" instance=ExtResource( 10 )]
-position = Vector2( 300, 130 )
-
-[node name="CliffIBR" parent="Obsticles" instance=ExtResource( 5 )]
-position = Vector2( 340, 130 )
-
-[node name="CliffIL" parent="Obsticles" instance=ExtResource( 12 )]
-position = Vector2( 300, 110 )
-
-[node name="CliffIR" parent="Obsticles" instance=ExtResource( 7 )]
-position = Vector2( 340, 110 )
-
-[node name="CliffIT" parent="Obsticles" instance=ExtResource( 13 )]
-position = Vector2( 320, 90 )
-
-[node name="CliffITL" parent="Obsticles" instance=ExtResource( 11 )]
-position = Vector2( 300, 90 )
-
-[node name="CliffITR" parent="Obsticles" instance=ExtResource( 14 )]
-position = Vector2( 340, 90 )
-
-[node name="Scenery" type="Node" parent="."]
-
-[node name="steps" type="Sprite" parent="Scenery"]
-position = Vector2( 199.5, 155 )
-z_index = -1
-texture = ExtResource( 2 )
-
-[node name="Enemy" parent="." instance=ExtResource( 3 )]
-position = Vector2( 102.41, 59.9359 )
-collision_layer = 4
-
-[node name="Enemy2" parent="." instance=ExtResource( 16 )]
-position = Vector2( 394.067, 67.015 )

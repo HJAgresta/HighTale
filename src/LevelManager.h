@@ -3,6 +3,7 @@
 #include "Common.h"
 #include "Grid.h"
 #include "GridNode.h"
+#include "Player.h"
 #include <Node2D.hpp>
 #include <Dictionary.hpp>
 #include <PackedScene.hpp>
@@ -22,7 +23,11 @@ namespace godot {
 
 		virtual void _ready();
 
-		godot::Grid grid;
+		Grid* grid;
+
+		~LevelManager();
+
+		Player* player;
 
 		Dictionary EnemyTypes;
 

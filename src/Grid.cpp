@@ -10,10 +10,10 @@ Grid::Grid()
 
 Grid::~Grid()
 {
-
-	for (int i = 0; i < RowCount; i++)
+	cout << "kill grid" << endl;
+	for (int i = 0; i < XCount; i++)
 	{
-		for (int j = 0; j < CollumnCount; j++)
+		for (int j = 0; j < YCount; j++)
 		{
 
 			delete Indicies[i][j];
@@ -23,35 +23,33 @@ Grid::~Grid()
 	delete Indicies;
 }
 
-Grid::Grid(int rowCount, int collumnCount)
+Grid::Grid(int xCount, int yCount)
 {
-	RowCount = rowCount;
+	XCount = xCount;
 
-	CollumnCount = collumnCount;
+	YCount = yCount;
 
-	Indicies = new GridNode**[RowCount];
+	Indicies = new GridNode**[XCount];
 
-	for (int i = 0; i < RowCount; i++)
+	for (int i = 0; i < XCount; i++)
 	{
-		Indicies[i] = new GridNode*[CollumnCount]; // build rows
+		Indicies[i] = new GridNode*[YCount]; // build rows
 	}
 
-	for (int i = 0; i < RowCount; i++)
+	for (int i = 0; i < XCount; i++)
 	{
-		for (int j = 0; j < CollumnCount; j++)
+		for (int j = 0; j < YCount; j++)
 		{
-
 			Indicies[i][j] = new GridNode(i, j);
-
 		}
 	}
 
 }
 
 
-bool Grid::AssignNode(int row, int collumn, GridObject* callObject)
+bool Grid::AssignNode(int x, int y, GridObject* callObject)
 {
-	GridNode* node = Indicies[row][collumn];
+	GridNode* node = Indicies[x][y];
 
 	if (node->Occupant == nullptr)
 		return false;

@@ -6,6 +6,7 @@
 extents = Vector2( 9.39969, 6.37574 )
 
 [node name="Rock1x1" type="StaticBody2D"]
+scale = Vector2( 0.8, 0.8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 3 )

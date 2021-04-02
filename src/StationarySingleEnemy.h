@@ -9,7 +9,7 @@ namespace godot {
 	///</summary>
 	class StationarySingleEnemy : public Enemy
 	{
-		GODOT_CLASS(StationarySingleEnemy, Enemy)
+		GODOT_SUBCLASS(StationarySingleEnemy, Enemy)
 
 	public:
 

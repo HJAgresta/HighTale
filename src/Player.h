@@ -14,7 +14,7 @@ namespace godot {
 	///</summary>
 	class Player : public BreakableObject
 	{
-		GODOT_CLASS(Player, BreakableObject)
+		GODOT_SUBCLASS(Player, BreakableObject)
 
 	public:
 

@@ -73,7 +73,7 @@
     <IncludePath>..\godot-cpp\include\gen;..\godot-cpp\include\core;..\godot-cpp\godot_headers;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>..\..\HighTale\godot-cpp\include\gen;..\..\HighTale\godot-cpp\include\core;..\..\HighTale\godot-cpp\godot_headers;..\..\HighTale\godot-cpp\include;$(IncludePath)</IncludePath>
+    <IncludePath>..\..\godot-cpp\include\gen;..\..\godot-cpp\include\core;..\..\godot-cpp\godot-headers;..\..\godot-cpp\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
