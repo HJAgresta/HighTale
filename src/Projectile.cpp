@@ -16,11 +16,6 @@ void Projectile::_register_methods()
 
 }
 
-void Projectile::destroy()
-{
-	this->queue_free();
-}
-
 void Projectile::_init()
 {
 

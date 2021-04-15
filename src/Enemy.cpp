@@ -12,7 +12,9 @@ void Enemy::_init()
 
 bool Enemy::Destroy()
 {
-	this->queue_free();
+	if (!this->is_queued_for_deletion())
+		this->queue_free();
+
 	return true;
 }
 

@@ -14,7 +14,8 @@ void Attack::_init()
 
 void Attack::destroy()
 {
-	this->queue_free();
+	if (!this->is_queued_for_deletion())
+		this->queue_free();
 }
 
 void Attack::counter()

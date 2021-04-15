@@ -42,6 +42,9 @@ bool MovingSingleEnemy::TakeHit(float damage, Attack* incoming)
 
 void MovingSingleEnemy::_ready()
 {
+	followUntil = followUntil * followUntil;
+	fleeUntil = fleeUntil * fleeUntil;
+
 	//get a refrence to the player, we use it alot
 	Player = (KinematicBody2D*)get_node("../Player");
 	anim = (AnimatedSprite*)get_node("AnimatedSprite");
@@ -50,7 +53,7 @@ void MovingSingleEnemy::_ready()
 void MovingSingleEnemy::_physics_process(float delta)
 {
 	stateTime += delta;
-
+	float distanceToPlayer;
 	switch (curState)
 	{
 
@@ -58,11 +61,9 @@ void MovingSingleEnemy::_physics_process(float delta)
 
 		FacePlayer();
 
+		distanceToPlayer = Player->get_global_position().distance_squared_to(this->get_global_position());
 
-
-
-
-		if (Player->get_global_position().distance_squared_to(this->get_global_position()) > followUntil)
+		if (distanceToPlayer > followUntil)
 		{
 			KinematicCollision2D* collider = *move_and_collide((Direction * Speed * delta));
 			/*
@@ -76,7 +77,7 @@ void MovingSingleEnemy::_physics_process(float delta)
 			}
 			*/
 		}
-		else if(Player->get_global_position().distance_squared_to(this->get_global_position()) < fleeUntil)
+		else if(distanceToPlayer < fleeUntil)
 		{
 			KinematicCollision2D* collider = *move_and_collide((Direction * -Speed * delta));
 			/*
@@ -116,6 +117,7 @@ void MovingSingleEnemy::_physics_process(float delta)
 			curAttack->set_physics_process(false);
 
 			//set animation
+			anim->stop();
 			anim->set_frame(1ULL);
 
 			//we want to get these when they are initalized incase we destroy the object during the

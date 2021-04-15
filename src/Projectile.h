@@ -17,8 +17,6 @@ namespace godot {
 
 		void _ready();
 
-		void destroy();
-
 		void counter();
 
 		float time;
