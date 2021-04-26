@@ -3,6 +3,8 @@
 Currently we are using [Godot 3.2.2](https://godotengine.org/download/windows)  
 [alt if link oudated](https://downloads.tuxfamily.org/godotengine/3.2.2/)  
   
+also you may run into errors running scons if you are not using visual studio 2019's version of native tools
+  
 GDNative code is contained in the scr folder.  
 Inorder to build it run the following command in VS Native Tools Command Prompt.  
 ```
@@ -20,8 +22,34 @@ env['target_path'] += 'win64/'
 
 Make sure you have python installed and set to path.  
 Also have scons installed, some version of VS Native Tools CMD and Godot.  
-Make sure to add a copy of godot-cpp and godot-cpp/godot-headers in your main folder.  
+Make sure to add a copy of godot-cpp and godot-cpp/godot-headers next to your main folder.  
 You may need to get a version from someone else rather than git.  
+
+your folder structure should look something like this
+
+```
+/main/
+  /godot-cpp
+    /godot-headers
+  /Hightale
+    /project
+    /src
+```
+
+When you download godots headers it may download as godot_headers, just rename the folder and that should fix will prevent some scons issues.
+
+when you have everything open up native tools from visual studio 2019
+then navigate the terminal to the godot-cpp folder
+then run
+```
+scons generate_bindings=yes bits=64
+```
+
+after that inorder to build what you coded in c++ you can run in the hightale folder
+after running visual studio 2019
+```
+scons platform=windows
+```
 
 Additional help for running godot native can be found [on the godot wiki](https://docs.godotengine.org/en/stable/tutorials/plugins/gdnative/gdnative-cpp-example.html), [the godot-cpp readme](https://github.com/godotengine/godot-cpp) or from this [youtube tutorial](https://youtu.be/XPcSfXsoArQ?t=196).  
 
