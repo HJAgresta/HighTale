@@ -3,8 +3,6 @@
 Currently we are using [Godot 3.2.2](https://godotengine.org/download/windows)  
 [alt if link oudated](https://downloads.tuxfamily.org/godotengine/3.2.2/)  
   
-also you may run into errors running scons if you are not using visual studio 2019's version of native tools
-  
 GDNative code is contained in the scr folder.  
 Inorder to build it run the following command in VS Native Tools Command Prompt.  
 ```
@@ -21,9 +19,11 @@ env['target_path'] += 'win64/'
 ### Getting Started
 
 Make sure you have python installed and set to path.  
-Also have scons installed, some version of VS Native Tools CMD and Godot.  
+Also have scons installed, VS 2019 Native Tools and our current version of Godot.  
 Make sure to add a copy of godot-cpp and godot-cpp/godot-headers next to your main folder.  
 You may need to get a version from someone else rather than git.  
+
+VS 2019 native tools
 
 your folder structure should look something like this
 
@@ -45,8 +45,8 @@ then run
 scons generate_bindings=yes bits=64
 ```
 
-after that inorder to build what you coded in c++ you can run in the hightale folder
-after running visual studio 2019
+after that inorder to build what you coded in c++ you can navigate the native tools to the hightale folder
+
 ```
 scons platform=windows
 ```
