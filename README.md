@@ -36,7 +36,7 @@ your folder structure should look something like this
     /src
 ```
 
-When you download godots headers it may download as godot_headers, just rename the folder and that should fix will prevent some scons issues.
+When you download godots headers it may download as godot_headers, just rename the folder and that will prevent some scons issues.
 
 when you have everything open up native tools from visual studio 2019
 then navigate the terminal to the godot-cpp folder
