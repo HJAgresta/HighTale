@@ -21,27 +21,154 @@ void LevelManager::_ready()
 	grid = new Grid(32, 16);
 
 	const char* dataArray[16][32] = {
-		{"","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","", ""},
-		{"O","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","O",""},
-		{"O","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","O",""},
-		{"O","","","","HS","","","","HF","","","","","","","","","","","","","","","","","","","","","","O",""},
-		{"O","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","O",""},
-		{"O","","","","","","","","","","","","","","","","","","","O","O","O","","","","","","","","","O",""},
-		{"O","","","","","","","","","","","","","","","","","","","O","O","O","","","","","","","","","O",""},
-		{"O","","","","","","","","","","","","","","","","","","O","O","O","O","","","","","","","","","O",""},
-		{"","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","O",""},
-		{"","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","O",""},
-		{"O","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","O",""},
-		{"O","","","","O","O","O","O","","","","","","","P","","","","","","","","","","","","","","","","O",""},
-		{"O","","","","O","O","O","O","","","","","","","","","","","","","","","","","","","","","","","O",""},
-		{"O","","","","O","O","O","","","","","","","","","","","","","","","","","","","","","","","","O",""},
-		{"O","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","O",""},
-		{"O","O","O","O","O","O","","","","","","","","","","","","","","","","","","","","","","","","","O",""},
+		{"O","O","O","O","O","","O","O","O","O","O","","","","","","","O","O","O","O","O","O","O","O","O","O","O","O","O","O", "O"},
+		{"O","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","O","O"},
+		{"O","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","O","O"},
+		{"O","","","","HS","","","","HF","","","","","","","","","","","","","","","","","","","","","","O","O"},
+		{"O","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","O","O"},
+		{"O","","","","","","","","","","","","","","","","","","","O","O","O","","","","","","","","","O","O"},
+		{"O","","","","","","","","","","","","","","","","","","","O","O","O","","","","","","","","","O","O"},
+		{"O","","","","","","","","","","","","","","","","","","O","O","O","O","","","","","","","","","O","O"},
+		{"","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","O","O"},
+		{"","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","O","O"},
+		{"O","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","O","O"},
+		{"O","","","","O","O","O","O","","","","","","","P","","","","","","","","","","","","","","","","O","O"},
+		{"O","","","","O","O","O","O","","","","","","","","","","","","","","","","","","","","","","","O","O"},
+		{"O","","","","O","O","O","","","","","","","","","","","","","","","","","","","","","","","","O","O"},
+		{"O","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","O","O"},
+		{"O","O","O","O","O","O","","","","","","","","","","","","","","","","","","","","","O","","","","O","O"},
 	};
 
+	int** groupedNodes = new int*[grid->XCount];
 
-	//create an instance of our refrenced attack
-	//this calls init
+	for (int i = 0; i < grid->XCount; i++)
+	{
+		groupedNodes[i] = new int [grid->YCount]; // build rows
+	}
+
+	for (int i = 0; i < grid->XCount; i++)
+	{
+		for (int j = 0; j < grid->YCount; j++)
+		{
+			groupedNodes[i][j] = 0;
+		}
+	}
+
+
+	for (int i = 0; i < grid->XCount; i++)
+	{
+		for (int j = 0; j < grid->YCount; j++)
+		{
+			int connectionCount = 0;
+
+			if (*"O" == *dataArray[j][i + 1])
+				connectionCount++;
+
+			if (*"O" == *dataArray[j - 1][i])
+				connectionCount++;
+
+			if (*"O" == *dataArray[j][i - 1])
+				connectionCount++;
+
+			if (*"O" == *dataArray[j + 1][i])
+				connectionCount++;
+
+			if (connectionCount == 1)
+				groupedNodes[i][j] == 1;
+				
+		}
+	}
+
+	//sets obsticle types
+	//0 - nothing
+	//1 - 1x1
+	//2 = 2x1
+	//3 - 1x2
+	//4 - 2x2
+	//8 - edge
+	//9 - cliff
+	for (int i = 0; i < grid->XCount; i++)
+	{
+		for (int j = 0; j < grid->YCount; j++)
+		{
+			if (*dataArray[j][i] != *"O")
+				continue;
+
+			if (groupedNodes[i][j] != 0)
+				continue;
+
+			if (i == 0 || i == grid->XCount - 1
+				|| j == 0 || j == grid->YCount)
+			{
+				groupedNodes[i][j] = 8;
+				continue;
+			}
+
+			bool right = false;
+			if (*"O" == *dataArray[j][i + 1])
+			{
+				right = true;
+
+				//we need to form rocks
+				// so formations of 2x2 1x2 2x1 and 1x1 must become rocks
+				//this checks to see if two to the right is an obsticle
+				//if two right is obsticle its not a rock, and we are not on the edge
+				if (i != grid->XCount - 2 && *"O" != *dataArray[j][i + 2])
+				{
+					//if down one is a block
+					if (j != grid->YCount - 1 && *"O" == *dataArray[j + 1][i])
+					{
+						//if down two is not a block
+						if (j != grid->YCount - 2 && *"O" != *dataArray[j + 2][i])
+						{
+							//if diagonal down right one is a block
+							if (*"O" == *dataArray[j + 1][i + 1])
+							{
+								//if diagonal down right one and another is not a block
+								if (*"O" != *dataArray[j + 2][i + 1])
+								{
+									//if diagonal down right one and another is not a block
+									if (*"O" != *dataArray[j + 1][i + 2])
+									{
+										//if diagonal down right one and another is not a block
+										if (*"O" != *dataArray[j + 2][i + 2])
+										{
+											groupedNodes[i][j] = 4;
+											groupedNodes[i+1][j] = 4;
+											groupedNodes[i][j+1] = 4;
+											groupedNodes[i+1][j+1] = 4;
+										}
+									}
+								}
+							}
+
+						}
+					}
+				}//if one down is rock
+				else if (*"O" != *dataArray[j + 1][i])
+				{
+
+				}
+
+
+			}
+
+			bool down = false;
+			if (*"O" == *dataArray[j - 1][i])
+				down = true;
+
+			bool left = false;
+			if (*"O" == *dataArray[j][i - 1])
+				left = true;
+
+			bool up = false;
+			if (*"O" == *dataArray[j + 1][i])
+				up = true;
+
+		}
+	}
+
+	// places objects
 	for (int i = 0; i < grid->XCount; i++)
 	{
 		for (int j = 0; j < grid->YCount; j++)
@@ -52,7 +179,104 @@ void LevelManager::_ready()
 
 			if (*objectName == *"O")
 			{
-				curItem = (Node2D*)((Ref<PackedScene>)StaticObjectTypes["R1x1"])->instance();
+				if (i == 0)
+				{
+					if (j == 0)
+					{
+						curItem = (Node2D*)((Ref<PackedScene>)StaticObjectTypes["WIIIDR"])->instance();
+					}
+					else if (j == grid->YCount - 1)
+					{
+						curItem = (Node2D*)((Ref<PackedScene>)StaticObjectTypes["WIIUR"])->instance();
+					}
+					else if (*"O" == *dataArray[j - 1][i] && *"O" == *dataArray[j + 1][i])
+					{
+						curItem = (Node2D*)((Ref<PackedScene>)StaticObjectTypes["WIR"])->instance();
+					}
+					else if (*"O" == *dataArray[j - 1][i])
+					{
+						curItem = (Node2D*)((Ref<PackedScene>)StaticObjectTypes["WIBR"])->instance();
+					}
+					else if (*"O" == *dataArray[j + 1][i])
+					{
+						curItem = (Node2D*)((Ref<PackedScene>)StaticObjectTypes["WITR"])->instance();
+					}
+					else
+					{
+						curItem = (Node2D*)((Ref<PackedScene>)StaticObjectTypes["R1x1"])->instance();
+					}
+
+				}
+				else if (i == grid->XCount - 1)
+				{
+					if (j == 0)
+					{
+						curItem = (Node2D*)((Ref<PackedScene>)StaticObjectTypes["WIIIDL"])->instance();
+					}
+					else if (j == grid->YCount - 1)
+					{
+						curItem = (Node2D*)((Ref<PackedScene>)StaticObjectTypes["WIIUL"])->instance();
+					}
+					else if (*"O" == *dataArray[j - 1][i] && *"O" == *dataArray[j + 1][i])
+					{
+						curItem = (Node2D*)((Ref<PackedScene>)StaticObjectTypes["WIL"])->instance();
+					}
+					else if (*"O" == *dataArray[j - 1][i])
+					{
+						curItem = (Node2D*)((Ref<PackedScene>)StaticObjectTypes["WIBR"])->instance();
+					}
+					else if (*"O" == *dataArray[j + 1][i])
+					{
+						curItem = (Node2D*)((Ref<PackedScene>)StaticObjectTypes["WITR"])->instance();
+					}
+					else
+					{
+						curItem = (Node2D*)((Ref<PackedScene>)StaticObjectTypes["R1x1"])->instance();
+					}
+
+				}
+				else if (j == 0)
+				{
+					if (*"O" == *dataArray[j][i-1] && *"O" == *dataArray[j][i+1])
+					{
+						curItem = (Node2D*)((Ref<PackedScene>)StaticObjectTypes["WIB"])->instance();
+					}
+					else if (*"O" == *dataArray[j][i - 1])
+					{
+						curItem = (Node2D*)((Ref<PackedScene>)StaticObjectTypes["WIBR"])->instance();
+					}
+					else if (*"O" == *dataArray[j][i + 1])
+					{
+						curItem = (Node2D*)((Ref<PackedScene>)StaticObjectTypes["WIBL"])->instance();
+					}
+					else
+					{
+						curItem = (Node2D*)((Ref<PackedScene>)StaticObjectTypes["R1x1"])->instance();
+					}
+				}
+				else if (j == grid->YCount - 1)
+				{
+					if (*"O" == *dataArray[j][i - 1] && *"O" == *dataArray[j][i + 1])
+					{
+						curItem = (Node2D*)((Ref<PackedScene>)StaticObjectTypes["WIT"])->instance();
+					}
+					else if (*"O" == *dataArray[j][i - 1])
+					{
+						curItem = (Node2D*)((Ref<PackedScene>)StaticObjectTypes["WITR"])->instance();
+					}
+					else if (*"O" == *dataArray[j][i + 1])
+					{
+						curItem = (Node2D*)((Ref<PackedScene>)StaticObjectTypes["WITL"])->instance();
+					}
+					else
+					{
+						curItem = (Node2D*)((Ref<PackedScene>)StaticObjectTypes["R1x1"])->instance();
+					}
+				}
+				else
+				{
+					curItem = (Node2D*)((Ref<PackedScene>)StaticObjectTypes["R1x1"])->instance();
+				}
 
 			}
 			else if (*objectName == *"P")
@@ -78,8 +302,16 @@ void LevelManager::_ready()
 			curItem->set_position(grid->Indicies[i][j]->Center);
 
 			add_child(curItem, true);
+
 		}
 	}
+
+	//delete obsitcle helper grid
+	for (int i = 0; i < grid->XCount; i++)
+	{
+		delete groupedNodes[i];
+	}
+	delete groupedNodes;
 }
 
 

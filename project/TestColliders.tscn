@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://level1/obsticles/cliffs/cliffin/cliffii/CliffIIDR.tscn" type="PackedScene" id=2]
 [ext_resource path="res://enemies/level1/HunterStationary.tscn" type="PackedScene" id=3]
 [ext_resource path="res://level1/obsticles/rocks/RockSmall.tscn" type="PackedScene" id=4]
 [ext_resource path="res://level1/obsticles/cliffs/cliffin/CliffIBR.tscn" type="PackedScene" id=5]
@@ -13,8 +14,15 @@
 [ext_resource path="res://level1/obsticles/cliffs/cliffin/CliffIL.tscn" type="PackedScene" id=12]
 [ext_resource path="res://level1/obsticles/cliffs/cliffin/CliffIT.tscn" type="PackedScene" id=13]
 [ext_resource path="res://level1/obsticles/cliffs/cliffin/CliffITR.tscn" type="PackedScene" id=14]
+[ext_resource path="res://level1/obsticles/cliffs/cliffin/cliffii/CliffIIDL.tscn" type="PackedScene" id=15]
 [ext_resource path="res://enemies/level1/HunterFollow.tscn" type="PackedScene" id=16]
 [ext_resource path="res://LevelManager.gdns" type="Script" id=17]
+[ext_resource path="res://level1/obsticles/cliffs/cliffin/cliffii/CliffIIUL.tscn" type="PackedScene" id=18]
+[ext_resource path="res://level1/obsticles/cliffs/cliffin/cliffii/CliffIIUR.tscn" type="PackedScene" id=19]
+[ext_resource path="res://level1/obsticles/cliffs/cliffin/cliffii/CliffIIIDR.tscn" type="PackedScene" id=20]
+[ext_resource path="res://level1/obsticles/cliffs/cliffin/cliffii/CliffIIIUR.tscn" type="PackedScene" id=21]
+[ext_resource path="res://level1/obsticles/cliffs/cliffin/cliffii/CliffIIIDL.tscn" type="PackedScene" id=22]
+[ext_resource path="res://level1/obsticles/cliffs/cliffin/cliffii/CliffIIIUL.tscn" type="PackedScene" id=23]
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 17 )
@@ -29,6 +37,14 @@ StaticObjectTypes = {
 "WIB": ExtResource( 6 ),
 "WIBL": ExtResource( 10 ),
 "WIBR": ExtResource( 5 ),
+"WIIDL": ExtResource( 15 ),
+"WIIDR": ExtResource( 2 ),
+"WIIIDL": ExtResource( 22 ),
+"WIIIDR": ExtResource( 20 ),
+"WIIIUL": ExtResource( 23 ),
+"WIIIUR": ExtResource( 21 ),
+"WIIUL": ExtResource( 18 ),
+"WIIUR": ExtResource( 19 ),
 "WIL": ExtResource( 12 ),
 "WIR": ExtResource( 7 ),
 "WIT": ExtResource( 13 ),

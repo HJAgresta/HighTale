@@ -4,12 +4,12 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 
-[node name="CliffIB" type="StaticBody2D"]
+[node name="CliffIIIUL" type="StaticBody2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 48, 32, 16, 16 )
+region_rect = Rect2( 96, 48, 16, 16 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2( 0.8, 0.8 )

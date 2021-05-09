@@ -9,12 +9,12 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "",
+"base": "BreakableObject",
 "class": "Player",
 "language": "NativeScript",
 "path": "res://player/Player.gdns"
 }, {
-"base": "",
+"base": "Enemy",
 "class": "StationarySingleEnemy",
 "language": "NativeScript",
 "path": "res://enemies/EnemyFollow.gdns"
