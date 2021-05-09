@@ -55,32 +55,35 @@ void LevelManager::_ready()
 	}
 
 
-	/*
+	//finds 1x1 rocks
 	for (int i = 0; i < grid->XCount; i++)
 	{
 		for (int j = 0; j < grid->YCount; j++)
 		{
+			if (*dataArray[j][i] != *"O")
+				continue;
+
 			int connectionCount = 0;
 
-			if (*"O" == *dataArray[j][i + 1])
+			if (i != 0 && *"O" == *dataArray[j][i - 1])
 				connectionCount++;
 
-			if (*"O" == *dataArray[j - 1][i])
+			if (j != 0 && *"O" == *dataArray[j - 1][i])
 				connectionCount++;
 
-			if (*"O" == *dataArray[j][i - 1])
+			if (i != grid->XCount - 1 && *"O" == *dataArray[j][i + 1])
 				connectionCount++;
 
-			if (*"O" == *dataArray[j + 1][i])
+			if (j != grid->YCount - 1 && *"O" == *dataArray[j + 1][i])
 				connectionCount++;
 
-			if (connectionCount == 1)
+			if (connectionCount < 2)
 				groupedNodes[i][j] = 1;
 				
 		}
 	}
 
-	*/
+	
 	//sets obsticle types
 	//0 - nothing
 	//1 - 1x1
