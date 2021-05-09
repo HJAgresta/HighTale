@@ -55,6 +55,7 @@ void LevelManager::_ready()
 	}
 
 
+	/*
 	for (int i = 0; i < grid->XCount; i++)
 	{
 		for (int j = 0; j < grid->YCount; j++)
@@ -74,11 +75,12 @@ void LevelManager::_ready()
 				connectionCount++;
 
 			if (connectionCount == 1)
-				groupedNodes[i][j] == 1;
+				groupedNodes[i][j] = 1;
 				
 		}
 	}
 
+	*/
 	//sets obsticle types
 	//0 - nothing
 	//1 - 1x1
@@ -98,7 +100,7 @@ void LevelManager::_ready()
 				continue;
 
 			if (i == 0 || i == grid->XCount - 1
-				|| j == 0 || j == grid->YCount)
+				|| j == 0 || j == grid->YCount - 1)
 			{
 				groupedNodes[i][j] = 8;
 				continue;
@@ -108,49 +110,6 @@ void LevelManager::_ready()
 			if (*"O" == *dataArray[j][i + 1])
 			{
 				right = true;
-
-				//we need to form rocks
-				// so formations of 2x2 1x2 2x1 and 1x1 must become rocks
-				//this checks to see if two to the right is an obsticle
-				//if two right is obsticle its not a rock, and we are not on the edge
-				if (i != grid->XCount - 2 && *"O" != *dataArray[j][i + 2])
-				{
-					//if down one is a block
-					if (j != grid->YCount - 1 && *"O" == *dataArray[j + 1][i])
-					{
-						//if down two is not a block
-						if (j != grid->YCount - 2 && *"O" != *dataArray[j + 2][i])
-						{
-							//if diagonal down right one is a block
-							if (*"O" == *dataArray[j + 1][i + 1])
-							{
-								//if diagonal down right one and another is not a block
-								if (*"O" != *dataArray[j + 2][i + 1])
-								{
-									//if diagonal down right one and another is not a block
-									if (*"O" != *dataArray[j + 1][i + 2])
-									{
-										//if diagonal down right one and another is not a block
-										if (*"O" != *dataArray[j + 2][i + 2])
-										{
-											groupedNodes[i][j] = 4;
-											groupedNodes[i+1][j] = 4;
-											groupedNodes[i][j+1] = 4;
-											groupedNodes[i+1][j+1] = 4;
-										}
-									}
-								}
-							}
-
-						}
-					}
-				}//if one down is rock
-				else if (*"O" != *dataArray[j + 1][i])
-				{
-
-				}
-
-
 			}
 
 			bool down = false;
@@ -167,7 +126,6 @@ void LevelManager::_ready()
 
 		}
 	}
-
 	// places objects
 	for (int i = 0; i < grid->XCount; i++)
 	{

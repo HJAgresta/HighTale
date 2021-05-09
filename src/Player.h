@@ -31,7 +31,9 @@ namespace godot {
 		float speed;
 
 	private:
-		enum state { COUNTER, COOLDOWN, DEFAULT, PAUSE };
+		String hitAnimAppend;
+
+		enum state { COUNTER, COOLDOWN, DEFAULT, PAUSE, HIT };
 
 		state PlayerState = DEFAULT;
 
@@ -42,6 +44,8 @@ namespace godot {
 		AnimatedSprite* anim;
 
 		Input* input;
+
+		float hitTime;
 
 		float counterTime;
 
