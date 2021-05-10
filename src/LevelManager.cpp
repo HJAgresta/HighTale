@@ -102,10 +102,24 @@ void LevelManager::_ready()
 			if (groupedNodes[i][j] != 0)
 				continue;
 
-			if (i == 0 || i == grid->XCount - 1
-				|| j == 0 || j == grid->YCount - 1)
+			// if its an edge on the border
+			if (i == 0 || i == grid->XCount - 1)
 			{
-				groupedNodes[i][j] = 8;
+				if (j<grid->YCount - 1 && *dataArray[j + 1][i] == *"O" || j>0 && *dataArray[j - 1][i] == *"O")
+					groupedNodes[i][j] = 8;
+				else
+					groupedNodes[i][j] = 1;
+
+				continue;
+			}
+
+			if (j == 0 || j == grid->YCount - 1)
+			{
+				if (i < grid->XCount - 1 && *dataArray[j][i + 1] == *"O" || i>0 &&  *dataArray[j][i - 1] == *"O")
+					groupedNodes[i][j] = 8;
+				else
+					groupedNodes[i][j] = 1;
+
 				continue;
 			}
 
