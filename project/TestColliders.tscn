@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://level1/obsticles/cliffs/cliffin/cliffii/CliffIIDR.tscn" type="PackedScene" id=2]
@@ -23,17 +23,17 @@
 [ext_resource path="res://level1/obsticles/cliffs/cliffin/cliffii/CliffIIIUR.tscn" type="PackedScene" id=21]
 [ext_resource path="res://level1/obsticles/cliffs/cliffin/cliffii/CliffIIIDL.tscn" type="PackedScene" id=22]
 [ext_resource path="res://level1/obsticles/cliffs/cliffin/cliffii/CliffIIIUL.tscn" type="PackedScene" id=23]
+[ext_resource path="res://level1/obsticles/rocks/RockTall.tscn" type="PackedScene" id=24]
 
-[node name="Level" type="Node2D"]
+[node name="Level" type="YSort"]
 script = ExtResource( 17 )
-EnemyTypes = {
-"HF": ExtResource( 16 ),
-"HS": ExtResource( 3 )
-}
 StaticObjectTypes = {
-"R1x1": ExtResource( 4 ),
-"R2x1": ExtResource( 8 ),
-"R4x4": ExtResource( 9 ),
+"1x1-R": ExtResource( 4 ),
+"1x2-R": ExtResource( 24 ),
+"2x1-R": ExtResource( 8 ),
+"2x2-R": ExtResource( 9 ),
+"HF": ExtResource( 16 ),
+"HS": ExtResource( 3 ),
 "WIB": ExtResource( 6 ),
 "WIBL": ExtResource( 10 ),
 "WIBR": ExtResource( 5 ),

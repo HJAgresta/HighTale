@@ -8,13 +8,14 @@
 #include <Dictionary.hpp>
 #include <PackedScene.hpp>
 #include <ResourceLoader.hpp>
+#include <string>
 
 
 namespace godot {
 
-	class LevelManager : public Node
+	class LevelManager : public Node2D
 	{
-		GODOT_CLASS(LevelManager, Node)
+		GODOT_CLASS(LevelManager, Node2D)
 
 	public:
 		static void _register_methods();
@@ -29,9 +30,7 @@ namespace godot {
 
 		Player* player;
 
-		Dictionary EnemyTypes;
-
-		Dictionary StaticObjectTypes;
+		Dictionary ObjectTypes;
 
 	};
 };
