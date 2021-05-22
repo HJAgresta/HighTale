@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://level1/obsticles/cliffs/cliffin/cliffii/CliffIIDR.tscn" type="PackedScene" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://level1/obsticles/cliffs/cliffin/cliffii/CliffIIIDL.tscn" type="PackedScene" id=22]
 [ext_resource path="res://level1/obsticles/cliffs/cliffin/cliffii/CliffIIIUL.tscn" type="PackedScene" id=23]
 [ext_resource path="res://level1/obsticles/rocks/RockTall.tscn" type="PackedScene" id=24]
+[ext_resource path="res://level1/obsticles/cliffs/CliffM.tscn" type="PackedScene" id=25]
 
 [node name="Level" type="YSort"]
 script = ExtResource( 17 )
@@ -49,7 +50,8 @@ StaticObjectTypes = {
 "WIR": ExtResource( 7 ),
 "WIT": ExtResource( 13 ),
 "WITL": ExtResource( 11 ),
-"WITR": ExtResource( 14 )
+"WITR": ExtResource( 14 ),
+"WM": ExtResource( 25 )
 }
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
