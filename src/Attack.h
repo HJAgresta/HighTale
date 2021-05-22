@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Common.h"
-#include "Player.h"
+#include "BreakableObject.h"
 #include <Area2D.hpp>
 #include <AnimatedSprite.hpp>
 #include <KinematicBody2D.hpp>
@@ -15,11 +15,14 @@ namespace godot {
 		GODOT_CLASS(Attack, Area2D)
 
 	public:
+
 		static void _register_methods();
 
 		virtual void _init();
 
 		virtual void destroy();
+
+		virtual void counter();
 
 		float chargeTime = 1.0f;
 
@@ -31,7 +34,7 @@ namespace godot {
 
 		float range = 100.0f;
 
-		int damage = 30;
+		float damage = 30.0f;
 
 		Vector2 Direction = Vector2(0,0);
 

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -73,7 +73,7 @@
     <IncludePath>..\godot-cpp\include\gen;..\godot-cpp\include\core;..\godot-cpp\godot_headers;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>..\godot-cpp\include\core;..\godot-cpp\include\gen;..\godot-cpp\godot_headers;$(IncludePath)</IncludePath>
+    <IncludePath>..\..\godot-cpp\include\gen;..\..\godot-cpp\include\core;..\..\godot-cpp\godot-headers;..\..\godot-cpp\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -96,6 +96,10 @@
     <Link>
       <SubSystem>Console</SubSystem>
     </Link>
+    <PreBuildEvent>
+      <Command>"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat"
+scons platform=windows</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -129,7 +133,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Attack.cpp" />
+    <ClCompile Include="BreakableObject.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="Grid.cpp" />
+    <ClCompile Include="GridNode.cpp" />
+    <ClCompile Include="GridObject.cpp" />
+    <ClCompile Include="LevelManager.cpp" />
+    <ClCompile Include="MovingSingleEnemy.cpp" />
     <ClCompile Include="NativeLib.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Projectile.cpp" />
@@ -137,8 +147,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Attack.h" />
+    <ClInclude Include="BreakableObject.h" />
     <ClInclude Include="Common.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="Grid.h" />
+    <ClInclude Include="GridNode.h" />
+    <ClInclude Include="GridObject.h" />
+    <ClInclude Include="LevelManager.h" />
+    <ClInclude Include="MovingSingleEnemy.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Projectile.h" />
     <ClInclude Include="StationarySingleEnemy.h" />

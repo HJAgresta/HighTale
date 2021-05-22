@@ -8,7 +8,7 @@ namespace godot {
 	///</summary>
 	class Projectile : public Attack
 	{
-		GODOT_CLASS(Projectile, Attack)
+		GODOT_SUBCLASS(Projectile, Attack)
 
 	public:
 		static void _register_methods();
@@ -17,7 +17,7 @@ namespace godot {
 
 		void _ready();
 
-		void destroy();
+		void counter();
 
 		float time;
 

@@ -9,7 +9,7 @@ namespace godot {
 	///</summary>
 	class StationarySingleEnemy : public Enemy
 	{
-		GODOT_CLASS(StationarySingleEnemy, Enemy)
+		GODOT_SUBCLASS(StationarySingleEnemy, Enemy)
 
 	public:
 
@@ -21,5 +21,8 @@ namespace godot {
 
 		void _physics_process(float delta);
 
+		float Health;
+
+		bool TakeHit(float damage, Attack* incoming);
 	};
 }

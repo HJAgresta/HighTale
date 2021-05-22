@@ -1,32 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="Enemies">
       <UniqueIdentifier>{fa001e03-7b4c-429a-87ed-c3dd0dae7aae}</UniqueIdentifier>
     </Filter>
     <Filter Include="Attacks">
       <UniqueIdentifier>{072994d2-80a7-471b-9fb0-6cb63e07ddd1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="FieldManagement">
+      <UniqueIdentifier>{f1d683dd-a3bf-4906-b339-4c3df21e1f76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LevelManagement">
+      <UniqueIdentifier>{71bc1b73-512e-4183-879c-26e40693bddc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="NativeLib.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Attack.cpp">
       <Filter>Attacks</Filter>
     </ClCompile>
@@ -39,14 +27,26 @@
     <ClCompile Include="StationarySingleEnemy.cpp">
       <Filter>Enemies</Filter>
     </ClCompile>
+    <ClCompile Include="BreakableObject.cpp" />
+    <ClCompile Include="NativeLib.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="MovingSingleEnemy.cpp">
+      <Filter>Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Grid.cpp">
+      <Filter>FieldManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="GridNode.cpp">
+      <Filter>FieldManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelManager.cpp">
+      <Filter>LevelManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="GridObject.cpp">
+      <Filter>FieldManagement</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Common.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Attack.h">
       <Filter>Attacks</Filter>
     </ClInclude>
@@ -58,6 +58,24 @@
     </ClInclude>
     <ClInclude Include="StationarySingleEnemy.h">
       <Filter>Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="BreakableObject.h" />
+    <ClInclude Include="Common.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="MovingSingleEnemy.h">
+      <Filter>Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Grid.h">
+      <Filter>FieldManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="GridNode.h">
+      <Filter>FieldManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelManager.h">
+      <Filter>LevelManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="GridObject.h">
+      <Filter>FieldManagement</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -14,9 +14,9 @@ namespace godot {
 	///<summary>
 	///The main player object
 	///</summary>
-	class Enemy : public KinematicBody2D
+	class Enemy : public BreakableObject
 	{
-		GODOT_CLASS(Enemy, KinematicBody2D)
+		GODOT_CLASS(Enemy, BreakableObject)
 
 	public:
 
@@ -43,6 +43,8 @@ namespace godot {
 
 		KinematicBody2D* Player;
 
+		Vector2 Target;
+
 		Attack* curAttack;
 
 		float stateTime;
@@ -50,6 +52,8 @@ namespace godot {
 		int AttackIterator;
 
 		void FacePlayer();
+
+		bool Destroy();
 
 		AnimatedSprite* anim;
 	};

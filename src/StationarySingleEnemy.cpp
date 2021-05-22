@@ -5,6 +5,8 @@ void StationarySingleEnemy::_register_methods()
 	register_method("_physics_process", &StationarySingleEnemy::_physics_process);
 	register_method("_ready", &StationarySingleEnemy::_ready);
 	register_method("_init", &StationarySingleEnemy::_init);
+	register_method("TakeHit", &StationarySingleEnemy::TakeHit);
+	register_property<StationarySingleEnemy, float>("Health", &StationarySingleEnemy::Health, 100.0f);
 	register_property<StationarySingleEnemy, Ref<PackedScene>>("ThisAttack", &StationarySingleEnemy::ThisAttack, Ref<PackedScene>());
 	register_property<StationarySingleEnemy, float>("reactTime", &StationarySingleEnemy::reactTime, 1.0f);
 }
@@ -16,6 +18,20 @@ void StationarySingleEnemy::_init()
 	curState = ALERT;
 	stateTime = 0.0f;
 	AttackIterator = 0;
+	Health = 100.0f;
+}
+
+bool StationarySingleEnemy::TakeHit(float damage, Attack* incoming)
+{
+
+	Health = Health - damage;
+
+	incoming->destroy();
+
+	if (Health <= 0)
+		this->Destroy();
+
+	return true;
 }
 
 void StationarySingleEnemy::_ready()

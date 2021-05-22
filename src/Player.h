@@ -1,18 +1,20 @@
 #pragma once
 
 #include "Common.h"
-#include <KinematicCollision2D.hpp>
-#include <KinematicBody2D.hpp>
+#include "BreakableObject.h"
 #include <AnimatedSprite.hpp>
 #include <Input.hpp>
 
 namespace godot {
+
+	class Attack;
+
 	///<summary>
 	///The main player object
 	///</summary>
-	class Player : public KinematicBody2D
+	class Player : public BreakableObject
 	{
-		GODOT_CLASS(Player, KinematicBody2D)
+		GODOT_SUBCLASS(Player, BreakableObject)
 
 	public:
 
@@ -22,15 +24,18 @@ namespace godot {
 
 		void _ready();
 
-		void takeHit(int damage);
+		bool TakeHit(float damage, Attack* incoming);
 
 		void _physics_process(float delta);
 
 		float speed;
 
 	private:
+		String hitAnimAppend;
 
-		int health;
+		enum state { COUNTER, COOLDOWN, DEFAULT, PAUSE, HIT };
+
+		state PlayerState = DEFAULT;
 
 		unique_ptr<Vector2> Velocity;
 
@@ -39,6 +44,14 @@ namespace godot {
 		AnimatedSprite* anim;
 
 		Input* input;
+
+		float hitTime;
+
+		float counterTime;
+
+		float counterCooldown;
+
+		float stateTimer;
 	};
 }
 

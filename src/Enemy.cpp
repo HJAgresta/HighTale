@@ -10,10 +10,23 @@ void Enemy::_init()
 
 }
 
+bool Enemy::Destroy()
+{
+	if (!this->is_queued_for_deletion())
+		this->queue_free();
+
+	return true;
+}
+
+///<summary>
+///sets animation and sets the direction vector twoards the player
+///</summary>
 void Enemy::FacePlayer()
 {
+	Target = Player->get_position();
+
 	//gets the direction to the player
-	Direction = this->get_position().direction_to(Player->get_position());
+	Direction = this->get_position().direction_to(Target);
 
 	//if the magnitiude of x is greater than y
 	//they it is either to the right or left primarily
