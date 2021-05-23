@@ -112,123 +112,116 @@ void LevelManager::_ready()
 			}
 			else if (objectName == "C")
 			{
-				bool onBottom = i == 0;
-				if (j < YUpperBound &&
-					!onBottom &&
-					*"C" != *dataArray[j + 1][i - 1] &&
-					*"C" == *dataArray[j + 1][i] &&
-					*"C" == *dataArray[j][i - 1] &&
-					(j == 0 ||
-						*"C" == *dataArray[j - 1][i - 1] &&
-						*"C" == *dataArray[j - 1][i] &&
-						(i < XUpperBound ||
-							*"C" == *dataArray[j][i + 1] &&
-							*"C" == *dataArray[j - 1][i + 1]) &&
-						(onBottom || i < XUpperBound ||
-							*"C" == *dataArray[j - 1][i + 1])))
+				bool onBottom = j == YUpperBound;
+				bool onTop = j == 0;
+				bool onLeftEdge = i == 0;
+				bool onRightEdge = i == XUpperBound;
+
+				bool leftFilled = onLeftEdge || *"C" == *dataArray[j][i - 1];
+				bool rightFilled = onRightEdge || *"C" == *dataArray[j][i + 1];
+				bool upFilled = onTop || *"C" == *dataArray[j - 1][i];
+				bool downFilled = onBottom || *"C" == *dataArray[j + 1][i];
+				bool downLeftFilled = onBottom || onLeftEdge || *"C" == *dataArray[j + 1][i - 1];
+				bool downRightFilled = onBottom || onRightEdge || *"C" == *dataArray[j + 1][i + 1];
+				bool upLeftFilled = onTop || onLeftEdge || *"C" == *dataArray[j - 1][i - 1];
+				bool upRightFilled = onTop || onRightEdge || *"C" == *dataArray[j - 1][i + 1];
+
+				if (!downLeftFilled &&
+					downRightFilled &&
+					upLeftFilled &&
+					upRightFilled &&
+					downFilled &&
+					leftFilled &&
+					upFilled &&
+					rightFilled)
 				{
 					//bottom left empty
 					curItem = (Node2D*)((Ref<PackedScene>)(ObjectTypes["WIIDL"]))->instance();
 				}
-				else if (j < YUpperBound &&
-					i != XUpperBound &&
-					*"C" != *dataArray[j + 1][i + 1] &&
-					*"C" == *dataArray[j + 1][i] &&
-					*"C" == *dataArray[j][i + 1] &&
-					(j == 0 ||
-						*"C" == *dataArray[j - 1][i] &&
-						*"C" == *dataArray[j - 1][i + 1]) &&
-					(i == 0 ||
-						*"C" == *dataArray[j][i - 1] &&
-						*"C" == *dataArray[j - 1][i - 1]) &&
-					(i == 0 || j == 0 ||
-						*"C" == *dataArray[j - 1][i - 1]))
+				else if (downLeftFilled &&
+					!downRightFilled &&
+					upLeftFilled &&
+					upRightFilled &&
+					downFilled &&
+					leftFilled &&
+					upFilled &&
+					rightFilled)
 				{
 					//bottom right empty
 					curItem = (Node2D*)((Ref<PackedScene>)(ObjectTypes["WIIDR"]))->instance();
 				}
-				else if (j > 0 &&
-					i < XUpperBound &&
-					*"C" == *dataArray[j - 1][i] &&
-					*"C" != *dataArray[j - 1][i + 1] &&
-					*"C" == *dataArray[j][i + 1] &&
-					(j == YUpperBound ||
-						*"C" == *dataArray[j + 1][i + 1] &&
-						*"C" == *dataArray[j + 1][i]) &&
-					(i == 0 ||
-						*"C" == *dataArray[j][i - 1] &&
-						*"C" == *dataArray[j - 1][i - 1]) &&
-					(i == 0 || j == YUpperBound ||
-						*"C" == *dataArray[j + 1][i - 1]))
+				else if (downLeftFilled &&
+					downRightFilled &&
+					!upLeftFilled &&
+					upRightFilled &&
+					downFilled &&
+					leftFilled &&
+					upFilled &&
+					rightFilled)
+				{
+					//upper left empty
+					curItem = (Node2D*)((Ref<PackedScene>)(ObjectTypes["WIIUL"]))->instance();
+				}
+				else if (downLeftFilled &&
+					downRightFilled &&
+					upLeftFilled &&
+					!upRightFilled &&
+					downFilled &&
+					leftFilled &&
+					upFilled &&
+					rightFilled)
 				{
 					//upper right empty
 					curItem = (Node2D*)((Ref<PackedScene>)(ObjectTypes["WIIUR"]))->instance();
 				}
-				else if (j > 0 &&
-					i > 0 &&
-					*"C" == *dataArray[j - 1][i] &&
-					*"C" != *dataArray[j - 1][i - 1] &&
-					*"C" == *dataArray[j][i - 1] &&
-					(j == YUpperBound ||
-						*"C" == *dataArray[j + 1][i - 1] &&
-						*"C" == *dataArray[j + 1][i]) &&
-					(i < XUpperBound ||
-						*"C" == *dataArray[j][i + 1] &&
-						*"C" == *dataArray[j - 1][i + 1]) &&
-					(i < XUpperBound || j == YUpperBound ||
-						*"C" == *dataArray[j + 1][i + 1]))
-				{
-					//upper left empty
-					curItem = (Node2D*)((Ref<PackedScene>)(ObjectTypes["WIIUL"]))->instance();
-				}//if on the top
-				else if ((j == 0 || *"C" == *dataArray[j - 1][i]) &&
-					(i == 0 || *"C" == *dataArray[j][i - 1]) &&
-					(j < YUpperBound && *"C" != *dataArray[j + 1][i]) &&
-					(i < XUpperBound && *"C" != *dataArray[j][i + 1]))
+				else if (upFilled &&
+					leftFilled &&
+					!downFilled &&
+					!rightFilled)
 				{
 					//corner connection to the left and up
 					curItem = (Node2D*)((Ref<PackedScene>)(ObjectTypes["WIBR"]))->instance();
 				}
-				else if ((j == 0 || *"C" == *dataArray[j - 1][i]) &&
-					(i > 0 && *"C" != *dataArray[j][i - 1]) &&
-					(j < YUpperBound && *"C" != *dataArray[j + 1][i]) &&
-					(i == XUpperBound || *"C" == *dataArray[j][i + 1]))
+				else if (upFilled &&
+					!leftFilled &&
+					!downFilled &&
+					rightFilled)
 				{
-					//corner connection to the left and up
+					//corner connection to the up and right
 					curItem = (Node2D*)((Ref<PackedScene>)(ObjectTypes["WIBL"]))->instance();
 				}
-				else if ((j != 0 && *"C" != *dataArray[j - 1][i])
-					&& (i > 0 && *"C" != *dataArray[j][i - 1])
-					&& (j == YUpperBound || *"C" == *dataArray[j + 1][i])
-					&& (i == XUpperBound || *"C" == *dataArray[j][i + 1]))
+				else if (!upFilled &&
+					!leftFilled &&
+					downFilled &&
+					rightFilled)
 				{
-					//corner connection to the left and up
+					//corner connection to the down and right
 					curItem = (Node2D*)((Ref<PackedScene>)(ObjectTypes["WITL"]))->instance();
 				}
-				else if ((j != 0 && *"C" != *dataArray[j - 1][i]) &&
-					(i == 0 || *"C" == *dataArray[j][i - 1]) &&
-					(j == YUpperBound || *"C" == *dataArray[j + 1][i]) &&
-					(i < XUpperBound && *"C" != *dataArray[j][i + 1]))
+				else if (!upFilled &&
+					downFilled &&
+					leftFilled &&
+					!rightFilled)
 				{
-					//corner connection to the left and up
+					//corner connection to the left and down
 					curItem = (Node2D*)((Ref<PackedScene>)(ObjectTypes["WITR"]))->instance();
 				}
-				else if (j > 0 && *"C" != *dataArray[j - 1][i])
+				else if (!upFilled)
 				{
 					//no connection on top
 					curItem = (Node2D*)((Ref<PackedScene>)(ObjectTypes["WIT"]))->instance();
 				}
-				else if (j < YUpperBound && *"C" != *dataArray[j + 1][i])
+				else if (!downFilled)
 				{
 					//no connection on bottom
 					curItem = (Node2D*)((Ref<PackedScene>)(ObjectTypes["WIB"]))->instance();
 				}
-				else if (i > 0 && *"C" != *dataArray[j][i - 1])
+				else if (!leftFilled)
 				{
 					//no connection on left
 					curItem = (Node2D*)((Ref<PackedScene>)(ObjectTypes["WIL"]))->instance();
 				}
-				else if (i < XUpperBound && *"C" != *dataArray[j][i + 1])
+				else if (!rightFilled)
 				{
 					//no connection on right
 					curItem = (Node2D*)((Ref<PackedScene>)(ObjectTypes["WIR"]))->instance();
@@ -238,8 +231,6 @@ void LevelManager::_ready()
 					//entirely connected
 					curItem = (Node2D*)((Ref<PackedScene>)(ObjectTypes["WM"]))->instance();
 				}
-
-
 			}
 			else if (objectName == "P")
 			{
